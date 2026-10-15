@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-15T05:12:44.181Z",
+  "role": "t08_runtime",
+  "kind": "승인된 T08 상태 행에 한정한 운영 PostgreSQL 트랜잭션·지속 저장·권한 시험입니다.",
+  "existingTablesModified": false,
+  "sslCertificateVerification": true,
+  "separatePoolPersistence": true,
+  "rollbackPreservedState": true,
+  "probeRemoved": true,
+  "denied": [
+    {
+      "operation": "existing-t07-read",
+      "sqlState": "42501"
+    },
+    {
+      "operation": "t08-insert",
+      "sqlState": "42501"
+    },
+    {
+      "operation": "t08-delete",
+      "sqlState": "42501"
+    }
+  ],
+  "passed": true
+}
