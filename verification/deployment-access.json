@@ -7,7 +7,17 @@
   "scope": "peter-ahns-projects",
   "code": "forbidden",
   "dbChangesExecuted": false,
-  "deploymentExecuted": false,
+  "manualDeploymentExecuted": false,
+  "automaticGitPreview": {
+    "deploymentId": "dpl_BocyB7dgK7sSYMhFY9aaPjfMwxV6",
+    "gitCommit": "90cc5592447b3dd22ed882b0600d8ee9f1632e68",
+    "state": "READY",
+    "url": "https://skt-aleph-project-1-profile-cq6we4559-peter-ahns-projects.vercel.app",
+    "trigger": "t08-passkey 브랜치를 원격으로 올린 뒤 기존 Git 연결이 자동 생성했습니다.",
+    "publicAccess": false,
+    "publicAccessEvidence": "verification/public-access.json",
+    "productionT08Deployed": false
+  },
   "cli": {
     "version": "64.2.0",
     "operation": "project inspect 및 프로젝트·도메인 읽기",

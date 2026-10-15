@@ -3,7 +3,7 @@
 - 출처: https://aleph-omega.vercel.app/cortex?panel=tasks
 - 공식 원문 확인 기록: 2026-10-15 작업 대화에서 재확인한 카드 1~5입니다. 전체 문구와 안내는 `TASK-SOURCE.md`에 보존합니다.
 - 작업 대상: 기존 `SKT-ALEPH-Project-1-Profile`입니다. 기존 공개 소개 내용은 유지하고 비공개 영역만 추가합니다.
-- 상태 갱신: 카드 1·2의 로컬 증거를 2026-10-15에 대조했습니다. 로컬 합성 시험·가상 인증기 자동 시험·실제 기기·운영 배포·제출문 연결을 구분합니다. 나머지 기준은 실제 증거가 확인될 때까지 미검증입니다.
+- 갱신 상태: 47개 기준 모두에 실제 로컬 근거 또는 미완료 사유를 연결했습니다. 로컬·가상 인증기·실제 기기·운영·공식 제출을 구분합니다. 전체 과제 통과를 뜻하지 않습니다.
 - 증거 위치 열은 실제 파일이 생성되고 내용을 확인한 뒤 채웁니다. `미수집`은 증거 파일이 없다는 뜻입니다.
 - 합성 인증기 시험과 실제 기기 패스키 시험은 구분합니다. 실제 저장 위치·기기 승인·공식 접수 결과를 추정하지 않습니다.
 
@@ -59,9 +59,9 @@
 
 | 기준 | 공식 원문 | 상태 | 증거 위치 |
 |---|---|---|---|
-| T08-C01 | 결과물 URL 필드에 HTTPS URL 한 개가 제출되어 있다. | 미검증 | 미수집 |
-| T08-C02 | 소스 URL 필드에 HTTPS URL 한 개가 제출되어 있다. | 미검증 | 미수집 |
-| T08-C03 | 제출한 모든 URL(결과물·소스)은 계정 생성·로그인·인증·초대·비밀번호·OAuth·CAPTCHA 없이 새 시크릿 창에서 열린다. | 미검증 | 미수집 |
+| T08-C01 | 결과물 URL 필드에 HTTPS URL 한 개가 제출되어 있다. | 미완료: T08 운영 결과물 URL 미확정·미제출 | docs/SUBMISSION.md; docs/SUBMISSION-CHECKLIST.md |
+| T08-C02 | 소스 URL 필드에 HTTPS URL 한 개가 제출되어 있다. | 고정 소스 URL 공개 200 확인 / 공식 입력 대기 | docs/SUBMISSION.md; verification/public-access.json |
+| T08-C03 | 제출한 모든 URL(결과물·소스)은 계정 생성·로그인·인증·초대·비밀번호·OAuth·CAPTCHA 없이 새 시크릿 창에서 열린다. | 소스 공개 200 / 미리보기 로그인 보호 / T08 운영 URL 확인 대기 | verification/public-access.json; docs/SUBMISSION-CHECKLIST.md |
 | T08-C10 | 결과물 주소의 첫 화면은 공개 소개 페이지이고, 심사하는 사람이 아무것도 등록하지 않아도 열린다. | 로컬 공개 첫 화면 확인 / T08 운영 배포 대기 | verification/card1/public-and-locked.png; docs/CARD-5-REPORT.md |
 | T08-C11 | 1번 과제에서 만든 소개 페이지에 이어 붙였고, 1번의 공개 내용이 그대로 남아 있다. | 기존 공개 원문 보존 검사 통과 / 운영 배포 대기 | scripts/check-source.mjs; contracts/profile-baseline.html; docs/CARD-5-REPORT.md |
 | T08-C12 | 제출물에 실제 개인정보가 없고, 넣은 내용이 만들어 넣은 것이라는 사실이 적혀 있다. | 새 자료는 가상 내용 / 최종 비밀값 검사 및 기존 공개 이름 보존 범위 기록 | docs/AUTH-EXPLANATION.md; docs/CARD-5-REPORT.md |

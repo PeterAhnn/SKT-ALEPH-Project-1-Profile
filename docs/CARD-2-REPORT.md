@@ -5,9 +5,9 @@
 | 기준 | 실제 검증·남은 일 | 증거 |
 |---|---|---|
 | C19 | 질문을 서버에서 생성하고, 검증 전 서버 보관 값과 일치하는 것을 확인했습니다. | verification/card2/registration-evidence.json |
-| C20 | 연속한 등록 질문 2개의 실제 값을 비교해 서로 다른 것을 확인했습니다. 제출 설명서에 연결할 예정입니다. | 같은 파일의 freshChallenges |
+| C20 | 연속한 등록 질문 2개의 실제 값을 비교해 서로 다른 것을 확인했고 AUTH-EXPLANATION.md ③에 직접 포함했습니다. 공식 제출은 대기 중입니다. | 같은 파일의 freshChallenges; docs/AUTH-EXPLANATION.md ③ |
 | C21 | 실제 등록 완료 후 공개키가 저장되었습니다. | 같은 파일의 storedPublicKey |
-| C22 | 저장 공개키 실제 값을 보관했습니다. 공개키와 비밀번호의 차이는 최종 설명서에 작성할 예정입니다. | 같은 파일의 storedPublicKey.publicKey |
+| C22 | 저장 공개키 실제 값과 공개키이며 비밀번호가 아니라는 설명을 AUTH-EXPLANATION.md ③에 직접 포함했습니다. | 같은 파일의 storedPublicKey.publicKey; docs/AUTH-EXPLANATION.md ③ |
 | C23 | 브라우저가 보낸 등록 본문을 보관했고 개인키·비밀번호 필드가 없는 것을 확인했습니다. | 같은 파일의 records |
 | C24 | 사람이 알아볼 수 있는 이름과 등록 날짜가 화면에 표시됩니다. | verification/card2/registered.png |
 | C25 | NotAllowedError 취소를 모의 발생시켜 안내가 나오고 계정·패스키 건수가 증가하지 않는 것을 확인했습니다. 실제 기기 취소는 미확인입니다. | verification/card2/cancelled.png, registration-evidence.json |
@@ -17,4 +17,4 @@
 
 한계: 이 결과를 Windows Hello·구글 비밀번호 관리자·보안 키의 실제 등록으로 간주하지 않습니다. 실제 기기 등록·취소·저장 위치와 운영 배포 시험은 남아 있습니다.
 
-상태: 카드 2 구현과 자동 시험을 수행했습니다. 실제 기기 확인 및 최종 제출문 연결은 대기 중입니다.
+상태: 카드 2 구현·자동 시험과 AUTH-EXPLANATION.md의 근거 연결을 마쳤습니다. 실제 기기 등록·취소·저장 위치, T08 운영 검증과 공식 제출은 대기 중입니다.

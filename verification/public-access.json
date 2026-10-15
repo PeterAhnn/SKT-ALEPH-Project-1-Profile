@@ -1,0 +1,149 @@
+{
+  "checkedAt": "2026-10-15T04:34:17.940Z",
+  "kind": "개인 Chrome·인앱 브라우저와 분리한 Playwright Chromium의 새 무로그인 컨텍스트에서 수행한 공개 접근 읽기 검증입니다.",
+  "commit": "90cc5592447b3dd22ed882b0600d8ee9f1632e68",
+  "previewDeploymentId": "dpl_BocyB7dgK7sSYMhFY9aaPjfMwxV6",
+  "authenticationBypassUsed": false,
+  "loginPerformed": false,
+  "passkeyRegistered": false,
+  "dbChangesExecuted": false,
+  "deploymentExecuted": false,
+  "responseBodiesStored": false,
+  "records": [
+    {
+      "target": "source",
+      "requestedUrl": "https://github.com/PeterAhnn/SKT-ALEPH-Project-1-Profile/commit/90cc5592447b3dd22ed882b0600d8ee9f1632e68",
+      "initialCookieCount": 0,
+      "method": "GET",
+      "status": 200,
+      "redirectChain": [
+        {
+          "url": "https://github.com/PeterAhnn/SKT-ALEPH-Project-1-Profile/commit/90cc5592447b3dd22ed882b0600d8ee9f1632e68",
+          "status": 200
+        }
+      ],
+      "finalUrl": "https://github.com/PeterAhnn/SKT-ALEPH-Project-1-Profile/commit/90cc5592447b3dd22ed882b0600d8ee9f1632e68",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Add passkey-protected private space to existing profile · PeterAhnn/SKT-ALEPH-Project-1-Profile@90cc559 · GitHub",
+      "metaTitle": "Add passkey-protected private space to existing profile · PeterAhnn/SKT-ALEPH-Project-1-Profile@90cc559",
+      "commitHeading": null,
+      "commitTitle": "Add passkey-protected private space to existing profile",
+      "headings": [
+        "Navigation Menu",
+        "Repository navigation",
+        "Commit 90cc559",
+        "File tree",
+        "Some content is hidden",
+        "0 commit comments",
+        "Footer"
+      ],
+      "profileHeroPresent": false,
+      "originalProfileHeadingPresent": false,
+      "t08PrivateSectionPresent": false,
+      "t08RegistrationControlPresent": false,
+      "protectionObserved": false,
+      "publicAccessObserved": true,
+      "bodyStored": false,
+      "screenshot": null,
+      "screenshotOmittedReason": "화면 본문에서 비밀값 형태를 감지하여 저장하지 않았습니다."
+    },
+    {
+      "target": "preview",
+      "requestedUrl": "https://skt-aleph-project-1-profile-cq6we4559-peter-ahns-projects.vercel.app/",
+      "initialCookieCount": 0,
+      "method": "GET",
+      "status": 200,
+      "redirectChain": [
+        {
+          "url": "https://skt-aleph-project-1-profile-cq6we4559-peter-ahns-projects.vercel.app/",
+          "status": 302
+        },
+        {
+          "url": "https://vercel.com/sso-api",
+          "status": 307
+        },
+        {
+          "url": "https://vercel.com/login",
+          "status": 200
+        }
+      ],
+      "finalUrl": "https://vercel.com/login",
+      "contentType": "text/html; charset=utf-8",
+      "title": "Login – Vercel",
+      "metaTitle": "Protected Deployment – Vercel",
+      "commitHeading": null,
+      "headings": [
+        "Log in to Vercel"
+      ],
+      "profileHeroPresent": false,
+      "originalProfileHeadingPresent": false,
+      "t08PrivateSectionPresent": false,
+      "t08RegistrationControlPresent": false,
+      "protectionObserved": true,
+      "publicAccessObserved": false,
+      "bodyStored": false,
+      "screenshot": "verification/public-access-preview.png",
+      "sessionApi": {
+        "method": "GET",
+        "requestedUrl": "https://skt-aleph-project-1-profile-cq6we4559-peter-ahns-projects.vercel.app/api/session",
+        "initialCookieCount": 0,
+        "status": 200,
+        "finalUrl": "https://vercel.com/login",
+        "contentType": "text/html; charset=utf-8",
+        "bodyStored": false,
+        "redirectChain": [
+          {
+            "url": "https://skt-aleph-project-1-profile-cq6we4559-peter-ahns-projects.vercel.app/api/session",
+            "status": 302
+          },
+          {
+            "url": "https://vercel.com/sso-api",
+            "status": 307
+          },
+          {
+            "url": "https://vercel.com/login",
+            "status": 200
+          }
+        ],
+        "expectedWithoutDatabaseConfiguration": 503,
+        "protectionObserved": true,
+        "applicationResponseObserved": false
+      }
+    },
+    {
+      "target": "production",
+      "requestedUrl": "https://skt-aleph-project-1.vercel.app/",
+      "initialCookieCount": 0,
+      "method": "GET",
+      "status": 200,
+      "redirectChain": [
+        {
+          "url": "https://skt-aleph-project-1.vercel.app/",
+          "status": 200
+        }
+      ],
+      "finalUrl": "https://skt-aleph-project-1.vercel.app/",
+      "contentType": "text/html; charset=utf-8",
+      "title": "안형섭 | 함께 성장하는 개발자",
+      "metaTitle": null,
+      "commitHeading": null,
+      "headings": [
+        "조용히 돕고,\n          끝까지 해결합니다.",
+        "함께하는 사람들의 든든한 지원자",
+        "제가 좋아하는 것",
+        "경험으로 배운 것",
+        "저를 설명하는 세 가지 태도"
+      ],
+      "profileHeroPresent": true,
+      "originalProfileHeadingPresent": true,
+      "t08PrivateSectionPresent": false,
+      "t08RegistrationControlPresent": false,
+      "protectionObserved": false,
+      "publicAccessObserved": true,
+      "bodyStored": false,
+      "screenshot": "verification/public-access-production.png"
+    }
+  ],
+  "browserVersion": "156.0.8078.4",
+  "completedAt": "2026-10-15T04:34:22.672Z"
+}
