@@ -16,9 +16,12 @@
   "totalByteLimit": 8388608,
   "urlAccessRule": "계정 생성·로그인·인증·초대·비밀번호·OAuth·CAPTCHA 없이 새 시크릿 창에서 열려야 합니다.",
   "fieldsFilled": true,
-  "filesUploaded": false,
-  "submitPressed": false,
+  "filesUploaded": true,
+  "submitPressed": true,
   "actualDeviceResultReceived": true,
   "fileSelected": true,
-  "latestDraftEvidence": "verification/submission-payload.json"
+  "latestDraftEvidence": "verification/submission-payload.json",
+  "accepted": true,
+  "officialStatus": "강사 승인 대기",
+  "actualReceipt": "verification/platform-submission.json"
 }

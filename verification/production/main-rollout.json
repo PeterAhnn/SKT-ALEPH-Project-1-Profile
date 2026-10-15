@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-10-15T05:37:41.269Z",
+  "mainCommit": "02077c4eb8096119ecb9d06072900ffcdf1a1f3c",
+  "implementationBranch": "t08-passkey",
+  "mainFastForwarded": true,
+  "forcePushUsed": false,
+  "deploymentId": "dpl_6RUgTKmUAEamY6tfMCoSqVgYcgXW",
+  "productionBuildState": "READY",
+  "publicAlias": "skt-aleph-project-1.vercel.app",
+  "sourceApplicationUnchangedFrom": "653f9057cb63e5223b37b474f6f1fe1ceb61284c",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "sameApplicationHTML": true,
+      "sha256": "4de7ba3750763aa84606189d2b8a2b7a25cc9686538485d2a60411869d27d626"
+    },
+    {
+      "path": "/api/session",
+      "status": 200,
+      "body": {
+        "authenticated": false
+      }
+    },
+    {
+      "path": "/api/private/items",
+      "status": 401,
+      "body": {
+        "error": "패스키로 로그인해 주세요."
+      }
+    }
+  ],
+  "privateCookiesOrCredentialsUsed": false
+}

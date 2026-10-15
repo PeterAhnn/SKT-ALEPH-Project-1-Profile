@@ -59,8 +59,8 @@
 
 | 기준 | 공식 원문 | 상태 | 증거 위치 |
 |---|---|---|---|
-| T08-C01 | 결과물 URL 필드에 HTTPS URL 한 개가 제출되어 있다. | 운영 결과물 공개 200·제출 초안 입력 완료 / 실제 제출 대기 | verification/submission-payload.json; verification/production/http-evidence.json |
-| T08-C02 | 소스 URL 필드에 HTTPS URL 한 개가 제출되어 있다. | 고정 소스 공개 200·제출 초안 입력 완료 / 실제 제출 대기 | verification/submission-payload.json; verification/production/public-access.json |
+| T08-C01 | 결과물 URL 필드에 HTTPS URL 한 개가 제출되어 있다. | 운영 결과물 HTTPS URL 공식 접수 완료 / 강사 승인 대기 | verification/platform-submission.json; verification/production/http-evidence.json |
+| T08-C02 | 소스 URL 필드에 HTTPS URL 한 개가 제출되어 있다. | 고정 소스 HTTPS URL 공식 접수 완료 / 강사 승인 대기 | verification/platform-submission.json; verification/production/public-access.json |
 | T08-C03 | 제출한 모든 URL(결과물·소스)은 계정 생성·로그인·인증·초대·비밀번호·OAuth·CAPTCHA 없이 새 시크릿 창에서 열린다. | 운영 결과물·고정 소스 모두 새 무로그인 컨텍스트 공개 200 | verification/production/public-access.json |
 | T08-C10 | 결과물 주소의 첫 화면은 공개 소개 페이지이고, 심사하는 사람이 아무것도 등록하지 않아도 열린다. | 운영 공개 첫 화면·잠금 공간 확인 통과 | verification/production/http-evidence.json; verification/production/run-mv93637i-d8b509/production-evidence.json |
 | T08-C11 | 1번 과제에서 만든 소개 페이지에 이어 붙였고, 1번의 공개 내용이 그대로 남아 있다. | 기존 공개 원문 보존·운영 HTML 일치 확인 통과 | scripts/check-source.mjs; contracts/profile-baseline.html; verification/production/http-evidence.json |
@@ -71,13 +71,13 @@
 | T08-C39 | 거절 앞뒤로 반대편의 자료 건수가 같다는 기록이 적혀 있다. | 운영 가상 계정 양방향 격리·건수 보존·소스 위치 확인 | verification/production/run-mv93637i-d8b509/production-evidence.json; docs/AUTH-EXPLANATION.md ③·④ |
 | T08-C40 | 주소나 요청 본문에 다른 계정을 적어 보낸 요청과, 그래도 내 자료만 돌아온 응답이 적혀 있다. | 운영 가상 계정 양방향 격리·건수 보존·소스 위치 확인 | verification/production/run-mv93637i-d8b509/production-evidence.json; docs/AUTH-EXPLANATION.md ③·④ |
 | T08-C41 | 위 거절을 만들어 내는 소스의 위치가 제출문에 적혀 있다. | 운영 가상 계정 양방향 격리·건수 보존·소스 위치 확인 | verification/production/run-mv93637i-d8b509/production-evidence.json; docs/AUTH-EXPLANATION.md ③·④ |
-| T08-C47 | 인증 구현 설명서의 여섯 항목(① 무엇으로 붙였나, ② 왜 그걸 골랐나, ③ 어디를 어떻게 고쳤나, ④ 안 열리는 것을 확인한 기록, ⑤ AI와 나, ⑥ 아직 못 막은 것)이 각각 나뉘어 적혀 있다. | 설명서·확인법·실제 판단 초안 작성·대조 / 공식 제출 대기 | docs/AUTH-EXPLANATION.md; docs/SUBMISSION.md; docs/CARD-5-REPORT.md |
-| T08-C48 | ①에 직접 구현·라이브러리·인증 서비스 중 무엇을 썼는지와 그 이름이 적혀 있다. | 설명서·확인법·실제 판단 초안 작성·대조 / 공식 제출 대기 | docs/AUTH-EXPLANATION.md; docs/SUBMISSION.md; docs/CARD-5-REPORT.md |
-| T08-C49 | ③에 등록·로그인·로그아웃·비공개 자료 조회 네 흐름이 소스의 어디를 지나는지 적혀 있다. | 설명서·확인법·실제 판단 초안 작성·대조 / 공식 제출 대기 | docs/AUTH-EXPLANATION.md; docs/SUBMISSION.md; docs/CARD-5-REPORT.md |
-| T08-C50 | ④에 확인 네 가지(로그인 없이 열기, 남의 패스키로 열기, 이미 쓴 질문 재사용, 패스키 삭제 뒤 로그인)가 모두 있고, 각각 성공한 요청과 거절된 요청이 나란히 적혀 있다. | 설명서·확인법·실제 판단 초안 작성·대조 / 공식 제출 대기 | docs/AUTH-EXPLANATION.md; docs/SUBMISSION.md; docs/CARD-5-REPORT.md |
-| T08-C51 | ⑥에 아직 못 막은 것이 최소 하나 구체적으로 적혀 있다. 없다고만 적으면 통과하지 않는다. | 설명서·확인법·실제 판단 초안 작성·대조 / 공식 제출 대기 | docs/AUTH-EXPLANATION.md; docs/SUBMISSION.md; docs/CARD-5-REPORT.md |
-| T08-C52 | 짧은 확인 방법에 ① 어디로 가나요, ② 세 단계 안에 무엇을 하나요, ③ 무엇이 보이면 통과인가요, ④ 안 될 때는 무엇이 보이나요가 각각 나뉘어 적혀 있다. | 설명서·확인법·실제 판단 초안 작성·대조 / 공식 제출 대기 | docs/AUTH-EXPLANATION.md; docs/SUBMISSION.md; docs/CARD-5-REPORT.md |
-| T08-C53 | 제출문에 ① AI에게 맡긴 일, ② 내가 직접 판단한 일, ③ AI 제안을 따르지 않은 일(없다면 왜 없었는지)이 각각 나뉘어 적혀 있다. | 설명서·확인법·실제 판단 초안 작성·대조 / 공식 제출 대기 | docs/AUTH-EXPLANATION.md; docs/SUBMISSION.md; docs/CARD-5-REPORT.md |
+| T08-C47 | 인증 구현 설명서의 여섯 항목(① 무엇으로 붙였나, ② 왜 그걸 골랐나, ③ 어디를 어떻게 고쳤나, ④ 안 열리는 것을 확인한 기록, ⑤ AI와 나, ⑥ 아직 못 막은 것)이 각각 나뉘어 적혀 있다. | 설명서 6항목·확인 4줄·판단 3줄 공식 접수 완료 / 승인·채점 대기 | docs/T08-AUTH-EXPLANATION-FINAL.md; verification/platform-submission.json; docs/CARD-5-REPORT.md |
+| T08-C48 | ①에 직접 구현·라이브러리·인증 서비스 중 무엇을 썼는지와 그 이름이 적혀 있다. | 설명서 6항목·확인 4줄·판단 3줄 공식 접수 완료 / 승인·채점 대기 | docs/T08-AUTH-EXPLANATION-FINAL.md; verification/platform-submission.json; docs/CARD-5-REPORT.md |
+| T08-C49 | ③에 등록·로그인·로그아웃·비공개 자료 조회 네 흐름이 소스의 어디를 지나는지 적혀 있다. | 설명서 6항목·확인 4줄·판단 3줄 공식 접수 완료 / 승인·채점 대기 | docs/T08-AUTH-EXPLANATION-FINAL.md; verification/platform-submission.json; docs/CARD-5-REPORT.md |
+| T08-C50 | ④에 확인 네 가지(로그인 없이 열기, 남의 패스키로 열기, 이미 쓴 질문 재사용, 패스키 삭제 뒤 로그인)가 모두 있고, 각각 성공한 요청과 거절된 요청이 나란히 적혀 있다. | 설명서 6항목·확인 4줄·판단 3줄 공식 접수 완료 / 승인·채점 대기 | docs/T08-AUTH-EXPLANATION-FINAL.md; verification/platform-submission.json; docs/CARD-5-REPORT.md |
+| T08-C51 | ⑥에 아직 못 막은 것이 최소 하나 구체적으로 적혀 있다. 없다고만 적으면 통과하지 않는다. | 설명서 6항목·확인 4줄·판단 3줄 공식 접수 완료 / 승인·채점 대기 | docs/T08-AUTH-EXPLANATION-FINAL.md; verification/platform-submission.json; docs/CARD-5-REPORT.md |
+| T08-C52 | 짧은 확인 방법에 ① 어디로 가나요, ② 세 단계 안에 무엇을 하나요, ③ 무엇이 보이면 통과인가요, ④ 안 될 때는 무엇이 보이나요가 각각 나뉘어 적혀 있다. | 설명서 6항목·확인 4줄·판단 3줄 공식 접수 완료 / 승인·채점 대기 | docs/T08-AUTH-EXPLANATION-FINAL.md; verification/platform-submission.json; docs/CARD-5-REPORT.md |
+| T08-C53 | 제출문에 ① AI에게 맡긴 일, ② 내가 직접 판단한 일, ③ AI 제안을 따르지 않은 일(없다면 왜 없었는지)이 각각 나뉘어 적혀 있다. | 설명서 6항목·확인 4줄·판단 3줄 공식 접수 완료 / 승인·채점 대기 | docs/T08-AUTH-EXPLANATION-FINAL.md; verification/platform-submission.json; docs/CARD-5-REPORT.md |
 
 ## 수량과 상태를 확인하는 규칙
 

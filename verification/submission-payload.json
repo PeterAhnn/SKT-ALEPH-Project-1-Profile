@@ -17,12 +17,13 @@
     "judgmentCharacters": 338,
     "judgmentLines": 3,
     "fileSelected": true,
-    "uploadConfirmed": false,
-    "submitPressed": false,
+    "uploadConfirmed": true,
+    "submitPressed": true,
     "selectedFileName": "T08-AUTH-EXPLANATION-FINAL.md",
     "selectedFileBytes": 52543,
     "observedWarning": "제출 전 확인 — 지금 상태로도 접수됩니다. 안내는 공개 결과물 URL 또는 PDF·DOCX·MD·TXT 보고서 한 파일 중 정확히 하나를 내도록 되어 있습니다. 이대로도 제출은 접수됩니다. 안내 준수 여부는 채점 때 확인됩니다.",
     "warningInterpretation": "C01·C02의 결과물/소스 URL과 설명서 6항목을 함께 준비하기 위해 공개 URL과 MD 설명서를 함께 선택했습니다. 실제 제출 전 경고 확인이 필요합니다."
   },
-  "browserDraftCheckedAt": "2026-10-15T05:34:51.712Z"
+  "browserDraftCheckedAt": "2026-10-15T05:34:51.712Z",
+  "platformReceipt": "verification/platform-submission.json"
 }

@@ -1,10 +1,10 @@
-# 카드 5 결과 — 로컬 원본 보존·운영 추가 검증·제출 준비
+# 카드 5 결과 — 로컬·운영 검증·공식 접수 완료
 
 - 갱신일: 2026-10-15 (한국 표준시)
 - 공식 카드: https://aleph-omega.vercel.app/cortex?panel=tasks
 - 운영 결과물: https://skt-aleph-project-1.vercel.app/ 입니다.
 - 운영 배포: 653f9057cb63e5223b37b474f6f1fe1ceb61284c, dpl_HhDtMFtzJxQkicx29G4FXZNYdomd·READY입니다. 앱 코드는 최초 구현 90cc와 같습니다.
-- 범위: 최초 로컬 원본과 실제 운영 HTTPS 서버의 가상 인증기 자동 시험을 구분합니다. 사용자의 저장 위치·로그인·두 키 등록·삭제 후 사용은 직접 응답으로 확인했습니다. 두 URL·확인 4줄·판단 3줄 초안 입력도 마쳤습니다. 실제 기기 취소·일부 실패 동작·파일 선택·업로드·실제 제출·접수·승인은 별도로 미확인입니다.
+- 범위: 최초 로컬 원본과 실제 운영 HTTPS 서버의 가상 인증기 자동 시험을 구분합니다. 사용자의 저장 위치·로그인·두 키 등록·삭제 후 사용은 직접 응답으로 확인했습니다. 두 URL·확인 4줄·판단 3줄·동결 MD 한 파일을 실제 제출해 접수를 완료했습니다. 현재 강사 승인 대기이며 실제 기기 취소·일부 실패 동작·강사/마스터 승인·후행 채점은 별도 미확인입니다.
 
 ## 최초 로컬 계정 격리 원본 기록
 
@@ -47,8 +47,8 @@
 
 | 기준 | 현재 확인 결과와 남은 일 | 근거 |
 |---|---|---|
-| C01 | 운영 결과물 HTTPS URL 준비·공개 앱 200 확인을 마쳤습니다. 제출 화면의 두 URL 초안 입력은 완료했으며 실제 제출은 대기 중입니다. | verification/production/http-evidence.json·SUBMISSION.md |
-| C02 | 운영 배포 커밋 653f의 전체 소스 URL을 새 무로그인 컨텍스트에서 공개 200으로 확인했습니다. 두 URL 초안 입력은 마쳤지만 실제 제출은 대기 중입니다. | SUBMISSION.md·deployment.json |
+| C01 | 운영 결과물 HTTPS URL을 실제 제출하고 접수를 확인했습니다. | verification/platform-submission.json |
+| C02 | 653f 전체 소스 URL을 공개 200으로 확인한 뒤 실제 제출하고 접수를 확인했습니다. | verification/platform-submission.json·production/public-access.json |
 | C03 | 운영 결과물과 최신 소스 653f 모두 초기 쿠키 0·무로그인 200을 확인했습니다. 보호된 초기 미리보기는 과거 관찰입니다. | http-evidence.json·verification/production/public-access.json |
 | C10 | 누구나 등록 없이 기존 공개 소개·잠금 영역을 봅니다. | production-evidence.json의 checks.public |
 | C11 | 기존 과제 1을 수정했고 공개 원문 보존·운영 원문 일치를 확인했습니다. | scripts/check-source.mjs·http-evidence.json |
@@ -74,10 +74,19 @@
 - 최신 운영의 실제 요청 80건·화면 8개는 verification/production/run-mv93637i-d8b509/에 있습니다.
 - 초기 verification/public-access.json의 보호 preview·과거 운영은 당시 관찰이며 최신 운영 판정에는 production 증거를 사용합니다. 승격 전 CLI 302도 앱 응답이 아니었습니다.
 - AUTH-EXPLANATION.md는 실제 운영 질문·공개키·등록 본문·성공/거절을 직접 읽을 수 있는 단독 MD입니다.
-- C01·C02의 두 URL 초안은 입력했지만 실제 과제 제출·접수 결과는 아직 확인하지 않았습니다.
+- C01·C02의 두 URL을 실제 제출했습니다. 업로드·접수 완료와 강사 승인 대기는 verification/platform-submission.json에서 확인했습니다. 승인·후행 채점과 구분합니다.
 
 ## 남은 일
 
-사용자는 구글 비밀번호 관리자·로그인·패스키 2개 등록→1개 삭제→남은 키 성공을 직접 확인했습니다. 실제 기기 취소·삭제 키 서명 거절·0개 정책에 대한 사용자 직접 확인은 없습니다. 근거는 verification/real-device-user-confirmation.json입니다. 제출문/첨부 검사·공식 입력·접수·승인은 별도로 확인해야 합니다. **운영 자동 시험 통과를 공식 47개 전체 통과로 표시하지 않습니다.**
+사용자는 구글 비밀번호 관리자·로그인·패스키 2개 등록→1개 삭제→남은 키 성공을 직접 확인했습니다. 실제 기기 취소·삭제 키 서명 거절·0개 정책에 대한 사용자 직접 확인은 없습니다. 근거는 verification/real-device-user-confirmation.json입니다. 실제 제출·접수는 완료했고 강사 승인 대기입니다. 강사/마스터 승인·후행 채점은 별도로 확인해야 합니다. **운영 자동 시험 통과를 공식 47개 전체 통과로 표시하지 않습니다.**
 
-접수 화면의 공개 결과물 URL 또는 PDF·DOCX·MD·TXT 보고서 한 파일 조건과 C01·C02의 결과물·소스 URL 두 개 완주 기준은 구분합니다. 최대 10개·합계 8MB를 제출 직전에 확인합니다.
+접수 화면의 공개 결과물 URL 또는 PDF·DOCX·MD·TXT 보고서 한 파일 조건과 C01·C02의 결과물·소스 URL 두 개 완주 기준은 구분합니다. 이번 제출은 52,543바이트 MD 한 파일과 제한 이내 문안으로 접수했습니다.
+
+
+## 공식 접수와 후속 Git 운영 동기화
+
+사용자가 경고를 확인하고 이 문안의 제출을 승인했습니다. 제출 버튼을 한 번 눌러 파일 업로드와 “T08 제출을 마쳤습니다”를 확인했고, 후속 화면에서 강사 승인 대기를 확인했습니다. 제출 내용은 URL 두 개·확인 4줄 365자·판단 3줄 338자·T08-AUTH-EXPLANATION-FINAL.md 한 파일입니다. 근거는 verification/platform-submission.json입니다.
+
+main과 t08-passkey는 빠른 앞으로 병합을 통해 02077c4eb8096119ecb9d06072900ffcdf1a1f3c로 동기화됐습니다. 강제 push 없이 생성된 Git 운영 배포 dpl_6RUgTKmUAEamY6tfMCoSqVgYcgXW의 READY·별칭·동일 앱 200·세션 200·비공개 401을 확인했습니다. 근거는 verification/production/main-rollout.json이며 제출 소스는 653f로 유지합니다.
+
+동결 AUTH·FINAL 파일의 접수 전 문구는 작성 시점 기록으로 남깁니다. C12 전체 개인정보 부재와 실제 기기 취소 등 남은 미확인을 접수 사실만으로 통과 처리하지 않습니다. 마스터 승인과 후행 채점도 미확인입니다.

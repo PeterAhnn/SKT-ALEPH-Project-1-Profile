@@ -15,14 +15,14 @@ record([43], '운영 패스키 이름·등록 날짜 화면 확인', 'verificati
 record([44], '운영 남은 키 200 및 실제 삭제 후 남은 키 로그인 사용자 확인', `${production}; verification/real-device-user-confirmation.json`);
 record([45], '운영 가상 인증기의 삭제 키 실제 서명 401 확인', `${production}; docs/AUTH-EXPLANATION.md ④`);
 record([46], '운영 가상 계정의 0개 정책·거절·화면·제출문 확인', `${production}; docs/AUTH-EXPLANATION.md ④·⑥`);
-record([1], '운영 결과물 공개 200·제출 초안 입력 완료 / 실제 제출 대기', 'verification/submission-payload.json; verification/production/http-evidence.json');
-record([2], '고정 소스 공개 200·제출 초안 입력 완료 / 실제 제출 대기', 'verification/submission-payload.json; verification/production/public-access.json');
+record([1], '운영 결과물 HTTPS URL 공식 접수 완료 / 강사 승인 대기', 'verification/platform-submission.json; verification/production/http-evidence.json');
+record([2], '고정 소스 HTTPS URL 공식 접수 완료 / 강사 승인 대기', 'verification/platform-submission.json; verification/production/public-access.json');
 record([3], '운영 결과물·고정 소스 모두 새 무로그인 컨텍스트 공개 200', 'verification/production/public-access.json');
 record([10], '운영 공개 첫 화면·잠금 공간 확인 통과', `verification/production/http-evidence.json; ${production}`);
 record([11], '기존 공개 원문 보존·운영 HTML 일치 확인 통과', 'scripts/check-source.mjs; contracts/profile-baseline.html; verification/production/http-evidence.json');
 record([12], '새 자료 합성·비밀값 가림 확인 / 기존 공개 이름 보존 범위 명시', 'docs/AUTH-EXPLANATION.md; verification/submission-readiness.json');
 record(range(36, 41), '운영 가상 계정 양방향 격리·건수 보존·소스 위치 확인', `${production}; docs/AUTH-EXPLANATION.md ③·④`);
-record(range(47, 53), '설명서·확인법·실제 판단 초안 작성·대조 / 공식 제출 대기', 'docs/AUTH-EXPLANATION.md; docs/SUBMISSION.md; docs/CARD-5-REPORT.md');
+record(range(47, 53), '설명서 6항목·확인 4줄·판단 3줄 공식 접수 완료 / 승인·채점 대기', 'docs/T08-AUTH-EXPLANATION-FINAL.md; verification/platform-submission.json; docs/CARD-5-REPORT.md');
 let doc = await readFile('docs/CRITERIA.md', 'utf8');
 const ids = [...doc.matchAll(/^\| T08-C(\d+) \|/gm)].map(match => Number(match[1]));
 assert.equal(ids.length, 47);
