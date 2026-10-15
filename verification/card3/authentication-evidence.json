@@ -1,0 +1,230 @@
+{
+  "checkedAt": "2026-10-15T04:16:27.394Z",
+  "kind": "개인 Chrome과 분리한 Chromium의 가상 WebAuthn 인증기로 실제 브라우저 API·서명·서버 검증기를 실행한 로컬 자동 시험입니다. 사용자 실제 기기 시험과 운영 배포 시험이 아닙니다.",
+  "freshChallenges": [
+    "2sZUUlgwlEcAIiRwDCRFKRYct3gCyT6WtlluHYlmuOI",
+    "Dsiqt34iV5NyumQsP46k8o_Enlg_aUmB8NNR0vJcxkY"
+  ],
+  "records": [
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/logout",
+        "cookie": "[가림]",
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "loggedOut": true
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "virtual-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "c2a3059f-9d68-4ebc-b06d-99b373790bbc",
+          "publicKey": {
+            "rpId": "localhost",
+            "challenge": "2sZUUlgwlEcAIiRwDCRFKRYct3gCyT6WtlluHYlmuOI",
+            "allowCredentials": [
+              {
+                "id": "Z9gM03SUA-PROMrcSA9ZGJYD2SlVwA-imE9RpLiGIok",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "virtual-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "1881b18c-6ada-41ef-a178-d7fedb667539",
+          "publicKey": {
+            "rpId": "localhost",
+            "challenge": "Dsiqt34iV5NyumQsP46k8o_Enlg_aUmB8NNR0vJcxkY",
+            "allowCredentials": [
+              {
+                "id": "Z9gM03SUA-PROMrcSA9ZGJYD2SlVwA-imE9RpLiGIok",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "1881b18c-6ada-41ef-a178-d7fedb667539",
+          "response": {
+            "id": "Z9gM03SUA-PROMrcSA9ZGJYD2SlVwA-imE9RpLiGIok",
+            "rawId": "Z9gM03SUA-PROMrcSA9ZGJYD2SlVwA-imE9RpLiGIok",
+            "response": {
+              "authenticatorData": "SZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2MFAAAAAg",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiRHNpcXQzNGlWNU55dW1Rc1A0Nms4b19FbmxnX2FVbUI4Tk5SMHZKY3hrWSIsIm9yaWdpbiI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTQwMDYiLCJjcm9zc09yaWdpbiI6ZmFsc2V9",
+              "signature": "MEUCIQC3LgnJdLiHerCoMasBFhMuGB5O8luAhFl3a5o2GE5K1gIgD5UOgpYb0JztS_KdrE8NpnwirOV2d-Foi_nF7CLKaOY",
+              "userHandle": "YzBjYThkZDctNzA0Yi00NDNmLWJkMzktOTQwODZlODAwZjli"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "패스키 서명을 확인하지 못했습니다."
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "virtual-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "df57f9b2-3fd4-4abd-8c03-e88ea5f8064a",
+          "publicKey": {
+            "rpId": "localhost",
+            "challenge": "IAysFADpEnkGtMrEM3B-hROzqei_A1SMrBY54yn_NWU",
+            "allowCredentials": [
+              {
+                "id": "Z9gM03SUA-PROMrcSA9ZGJYD2SlVwA-imE9RpLiGIok",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "df57f9b2-3fd4-4abd-8c03-e88ea5f8064a",
+          "response": {
+            "id": "Z9gM03SUA-PROMrcSA9ZGJYD2SlVwA-imE9RpLiGIok",
+            "rawId": "Z9gM03SUA-PROMrcSA9ZGJYD2SlVwA-imE9RpLiGIok",
+            "response": {
+              "authenticatorData": "SZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2MFAAAAAw",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiSUF5c0ZBRHBFbmtHdE1yRU0zQi1oUk96cWVpX0ExU01yQlk1NHluX05XVSIsIm9yaWdpbiI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTQwMDYiLCJjcm9zc09yaWdpbiI6ZmFsc2V9",
+              "signature": "MEYCIQCQs3L0bA7_9dhHjeZ_s0IIEU8ogrqoI_6-qJQ0pXVwDgIhAIsCKoe8egL0VKFKnUxZubHU8k6nyjQJl0nBIQ9LVI33",
+              "userHandle": "YzBjYThkZDctNzA0Yi00NDNmLWJkMzktOTQwODZlODAwZjli"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c0ca8dd7-704b-443f-bd39-94086e800f9b",
+            "name": "virtual-a"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "df57f9b2-3fd4-4abd-8c03-e88ea5f8064a",
+          "response": {
+            "id": "Z9gM03SUA-PROMrcSA9ZGJYD2SlVwA-imE9RpLiGIok",
+            "rawId": "Z9gM03SUA-PROMrcSA9ZGJYD2SlVwA-imE9RpLiGIok",
+            "response": {
+              "authenticatorData": "SZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2MFAAAAAw",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiSUF5c0ZBRHBFbmtHdE1yRU0zQi1oUk96cWVpX0ExU01yQlk1NHluX05XVSIsIm9yaWdpbiI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTQwMDYiLCJjcm9zc09yaWdpbiI6ZmFsc2V9",
+              "signature": "MEYCIQCQs3L0bA7_9dhHjeZ_s0IIEU8ogrqoI_6-qJQ0pXVwDgIhAIsCKoe8egL0VKFKnUxZubHU8k6nyjQJl0nBIQ9LVI33",
+              "userHandle": "YzBjYThkZDctNzA0Yi00NDNmLWJkMzktOTQwODZlODAwZjli"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": {
+          "error": "로그인 질문을 이미 사용했거나 찾을 수 없습니다. 다시 시작해 주세요."
+        }
+      }
+    }
+  ],
+  "staleSession": {
+    "request": "GET /api/private/items",
+    "cookie": "[가림]",
+    "response": {
+      "status": 401,
+      "body": {
+        "error": "패스키로 로그인해 주세요."
+      }
+    }
+  },
+  "cookieFlags": {
+    "httpOnly": true,
+    "sameSite": "Strict",
+    "secure": false,
+    "note": "localhost 시험에서는 Secure가 false입니다. HTTPS 운영 쿠키는 Secure입니다."
+  },
+  "passwordInputCount": 0
+}

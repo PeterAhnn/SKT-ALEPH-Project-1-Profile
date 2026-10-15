@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-10-15T04:07:22.871Z",
+  "environment": "개인 Chrome과 분리한 Playwright Chromium",
+  "kind": "합성 세션을 직접 주입한 화면 시험. 실제 패스키 등록·로그인 시험이 아님.",
+  "lockedContentVisible": false,
+  "unlockedItemCount": 3,
+  "originalThemeTogglePassed": true,
+  "mobileOverflow": false
+}

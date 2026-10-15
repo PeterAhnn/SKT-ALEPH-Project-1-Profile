@@ -1,0 +1,36 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { createServer } from 'node:http';
+import { createApp, tokenHash } from '../server/app.mjs';
+import { LocalStore, emptyState } from '../server/store.mjs';
+import { mkdir, writeFile } from 'node:fs/promises';
+
+test('카드 1: 비로그인 응답 차단, 자료 격리, 공개 원문 보존', async t => {
+  const state = emptyState();
+  const marker = '합성시험전용비공개표식-CARD1';
+  state.users.a = { id: 'a', name: '합성 계정 A', items: [1, 2, 3].map(id => ({ id, title: `${marker}-${id}`, body: '가상 자료' })) };
+  state.users.b = { id: 'b', name: '합성 계정 B', items: [{ id: 4, title: '다른 가상 자료', body: '가상 자료' }] };
+  state.sessions[tokenHash('test-only-session')] = { userId: 'a', expiresAt: Date.now() + 60000 };
+  const server = createServer(createApp({ store: new LocalStore({ state }) }));
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => new Promise(resolve => server.close(resolve)));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const page = await fetch(base);
+  const html = await page.text();
+  assert.equal(page.status, 200);
+  assert.ok(html.includes('공개 소개와 별도로 잠근 비공개 공간'));
+  assert.ok(!html.includes(marker));
+  const denied = await fetch(`${base}/api/private/items`);
+  assert.equal(denied.status, 401);
+  const deniedBody = await denied.json();
+  const own = await fetch(`${base}/api/private/items?userId=b`, { headers: { cookie: 't08-session=test-only-session' } });
+  const ownBody = await own.json();
+  assert.equal(ownBody.owner, 'a');
+  assert.equal(ownBody.items.length, 3);
+  const other = await fetch(`${base}/api/private/accounts/b/items`, { headers: { cookie: 't08-session=test-only-session' } });
+  assert.equal(other.status, 403);
+  for (const path of ['/server/app.mjs', '/data/t08-state.json', '/docs/TASK-SOURCE.md', '/.env', '/package.json']) assert.equal((await fetch(base + path)).status, 404);
+  await mkdir('verification/card1', { recursive: true });
+  await writeFile('verification/card1/http-evidence.json', JSON.stringify({ checkedAt: new Date().toISOString(), kind: '합성 자료를 사용한 실제 로컬 HTTP 시험. 세션은 시험 코드에서 주입했으며 패스키 로그인 증거가 아님.', publicPage: { status: page.status, privateMarkerPresent: html.includes(marker) }, unauthenticated: { request: 'GET /api/private/items', status: denied.status, response: deniedBody }, syntheticAuthenticated: { request: 'GET /api/private/items?userId=b', cookie: '[가림]', status: own.status, response: ownBody }, otherAccountStatus: other.status }, null, 2));
+  await writeFile('verification/card1/unauthenticated.html', html);
+});

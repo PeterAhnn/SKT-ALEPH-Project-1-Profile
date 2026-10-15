@@ -1,0 +1,90 @@
+{
+  "recordedAt": "2026-10-15T04:22:27.891Z",
+  "source": "http://localhost:65249",
+  "kind": "이 탭의 실제 요청·응답을 브라우저에서 수집한 기록입니다. 저장 위치는 사용자의 직접 선택이며 자동 판정이 아닙니다.",
+  "storageLocation": "미확인",
+  "records": [
+    {
+      "checkedAt": "2026-10-15T04:22:27.545Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]",
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "5a4a48bd-cbc6-45ac-afb4-140548cfe031",
+            "name": "virtual-a"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "checkedAt": "2026-10-15T04:22:27.548Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]",
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "5a4a48bd-cbc6-45ac-afb4-140548cfe031",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "ba6b7bc0-5d7f-4c40-adc2-fd62506aa7c7",
+              "title": "가상 프로젝트 메모",
+              "body": "virtual-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다."
+            },
+            {
+              "id": "4c96f517-19c7-44c2-b6f5-fb4ad077c5e3",
+              "title": "가상 관심 목록",
+              "body": "virtual-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다."
+            },
+            {
+              "id": "6c65e436-73e8-4769-adcf-9ba54be143ab",
+              "title": "가상 연습 회고",
+              "body": "virtual-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다."
+            }
+          ]
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "checkedAt": "2026-10-15T04:22:27.560Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]",
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "BstXDHWdY6C3VINeS690WnjtTD0PcDd2WQ5FYRngr9E",
+              "name": "가상 인증기 A",
+              "createdAt": "2026-10-15T04:22:27.080Z",
+              "publicKey": "pQECAyYgASFYIPP6PID8l_XK3oa37ZgcpZLjs0bUyzDSm9Lc-AGQqysVIlggghsmvMtpCNTxTM87Kg9bPB6K7aFEr-a5FpFaSI_DTBE",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        },
+        "setCookie": "[가림]"
+      }
+    }
+  ]
+}

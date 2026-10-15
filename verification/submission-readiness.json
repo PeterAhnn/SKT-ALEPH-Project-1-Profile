@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-15T04:30:26.985Z",
+  "checkedFiles": 47,
+  "findings": [],
+  "authExplanationBytes": 35166,
+  "maxFiles": 10,
+  "totalByteLimit": 8388608,
+  "proposedAttachmentCount": 1,
+  "proposedAttachmentWithinLimit": true,
+  "checkTextLength": 457,
+  "decisionTextLength": 342,
+  "note": "기계적인 비밀값 패턴 검사와 문서 형식 검사입니다. 모든 개인정보 부재나 운영·실기·공식 제출 완료를 자동 판정하지 않습니다. 기존 공개 소개의 이름·공개 GitHub 링크는 사용자 승인에 따라 보존했습니다."
+}

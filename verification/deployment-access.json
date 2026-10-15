@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-15T04:25:00.338Z",
+  "kind": "기존 운영 프로젝트 관리 권한을 확인한 실제 읽기 전용 응답입니다. 로컬 앱의 계정 격리 시험 403과 구분합니다.",
+  "project": "skt-aleph-project-1-profile",
+  "operation": "GET /v9/projects/{idOrName}",
+  "status": 403,
+  "scope": "peter-ahns-projects",
+  "code": "forbidden",
+  "dbChangesExecuted": false,
+  "deploymentExecuted": false,
+  "cli": {
+    "version": "64.2.0",
+    "operation": "project inspect 및 프로젝트·도메인 읽기",
+    "status": 200,
+    "project": "skt-aleph-project-1-profile",
+    "scope": "peter-ahns-projects",
+    "nodeVersion": "24.x",
+    "gitRepository": "PeterAhnn/SKT-ALEPH-Project-1-Profile",
+    "productionBranch": "main",
+    "verifiedDomain": "skt-aleph-project-1.vercel.app"
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "checkedAt": "2026-10-15T04:20:15.763Z",
+  "kind": "개인 Chrome과 분리한 Chromium의 가상 WebAuthn 인증기로 실제 브라우저 API·서명·서버 검증기를 실행한 로컬 자동 시험입니다. 사용자 실제 기기 시험과 운영 배포 시험이 아닙니다.",
+  "devices": "서로 독립한 Chromium 가상 인증기 2개",
+  "registered": [
+    {
+      "id": "hknMXKAOALV406BLn9_1oPJI0cnlUW21lD-8015UlI0",
+      "name": "가상 인증기 A",
+      "createdAt": "2026-10-15T04:20:15.052Z",
+      "publicKey": "pQECAyYgASFYIJc4NRbEerwSdS5pkgT5soBg6CwzuA8BMjcoW9sqXj_kIlgglcJQ36dDV7ANmtFo8GZ4yN9TYleKNdAx-McUwIWuSZo"
+    },
+    {
+      "id": "1Mx1PPkv33-N_5bUBFDQTtdLcLbEaW88IYeeBxyAgK0",
+      "name": "가상 인증기 B",
+      "createdAt": "2026-10-15T04:20:15.147Z",
+      "publicKey": "pQECAyYgASFYII9qnp0ceVTYZFrtBwhDoVGF6FEbUDCtCSzZ65biuVvDIlggt4_5Ejkz0rkxb9FEBR-Y383cvjI5V5yjHDd-3det63I"
+    }
+  ],
+  "deleteFirst": {
+    "request": {
+      "method": "DELETE",
+      "path": "/api/passkeys/hknMXKAOALV406BLn9_1oPJI0cnlUW21lD-8015UlI0",
+      "cookie": "[가림]"
+    },
+    "response": {
+      "status": 200,
+      "body": {
+        "deleted": true,
+        "remaining": 1,
+        "loggedOut": false,
+        "message": "패스키를 삭제했습니다. 남은 패스키 1개를 사용할 수 있습니다."
+      }
+    }
+  },
+  "records": [
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/logout",
+        "cookie": "[가림]",
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "loggedOut": true
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "virtual-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "84a197a2-8f84-41bf-b0a1-2664572d173a",
+          "publicKey": {
+            "rpId": "localhost",
+            "challenge": "jvPTPCsLJTyRHgKopncTpBUn5VBVnTYINwwRemy0_74",
+            "allowCredentials": [
+              {
+                "id": "1Mx1PPkv33-N_5bUBFDQTtdLcLbEaW88IYeeBxyAgK0",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "84a197a2-8f84-41bf-b0a1-2664572d173a",
+          "response": {
+            "id": "hknMXKAOALV406BLn9_1oPJI0cnlUW21lD-8015UlI0",
+            "rawId": "hknMXKAOALV406BLn9_1oPJI0cnlUW21lD-8015UlI0",
+            "response": {
+              "authenticatorData": "SZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2MFAAAAAg",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoianZQVFBDc0xKVHlSSGdLb3BuY1RwQlVuNVZCVm5UWUlOd3dSZW15MF83NCIsIm9yaWdpbiI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTgzMjYiLCJjcm9zc09yaWdpbiI6ZmFsc2V9",
+              "signature": "MEQCICC1H64Wu9oiFJp7L5E4HrkVQRudmTy8EclWFFNLmXC6AiAZvpxcCJdFhaPASo3yaSdFIQk3_avWDwNrp8OpLT-_3g",
+              "userHandle": "Njk3NzVkODItNzYwOS00NWNlLWI0MjMtNWVjZmFiODYxZWU4"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "이 계정에 등록된 패스키로 로그인해 주세요."
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "virtual-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "91426ed8-7274-420f-a057-162fdf30f826",
+          "publicKey": {
+            "rpId": "localhost",
+            "challenge": "kTpr-tNROIOLBxnVSmVcX-IPTOONiDVFiIZqQ8qNkVo",
+            "allowCredentials": [
+              {
+                "id": "1Mx1PPkv33-N_5bUBFDQTtdLcLbEaW88IYeeBxyAgK0",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "91426ed8-7274-420f-a057-162fdf30f826",
+          "response": {
+            "id": "1Mx1PPkv33-N_5bUBFDQTtdLcLbEaW88IYeeBxyAgK0",
+            "rawId": "1Mx1PPkv33-N_5bUBFDQTtdLcLbEaW88IYeeBxyAgK0",
+            "response": {
+              "authenticatorData": "SZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2MFAAAAAg",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoia1Rwci10TlJPSU9MQnhuVlNtVmNYLUlQVE9PTmlEVkZpSVpxUThxTmtWbyIsIm9yaWdpbiI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTgzMjYiLCJjcm9zc09yaWdpbiI6ZmFsc2V9",
+              "signature": "MEUCIGl13G0acI1v5vafvJp-wS2fTLCv1W6COc0IaC1aNDBXAiEAx8R429RNbwc378ZzvQJUX9Tg2bMgmCJpAvImYKgx948",
+              "userHandle": "Njk3NzVkODItNzYwOS00NWNlLWI0MjMtNWVjZmFiODYxZWU4"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "69775d82-7609-45ce-b423-5ecfab861ee8",
+            "name": "virtual-a"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "virtual-a"
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "이 계정에서 사용할 수 있는 패스키가 없습니다. 별칭과 등록 상태를 확인해 주세요."
+        }
+      }
+    }
+  ],
+  "deletedKeyNegativeTest": "삭제된 키로 서명하기 위해 클라이언트 allowCredentials만 삭제된 키 ID로 바꾸었습니다. 서버 검증과 저장 상태는 바꾸지 않았습니다.",
+  "deleteLast": {
+    "request": {
+      "method": "DELETE",
+      "path": "/api/passkeys/1Mx1PPkv33-N_5bUBFDQTtdLcLbEaW88IYeeBxyAgK0",
+      "cookie": "[가림]"
+    },
+    "response": {
+      "status": 200,
+      "body": {
+        "deleted": true,
+        "remaining": 0,
+        "loggedOut": true,
+        "message": "마지막 패스키를 삭제했습니다. 모든 세션을 종료했으며 이 계정에 다시 로그인할 수 없습니다. 계정과 가상 자료는 남지만 복구 수단은 없습니다."
+      }
+    }
+  },
+  "lastKeyPolicy": "패스키 0개면 기존 계정 로그인과 비밀번호·이메일 복구를 제공하지 않습니다. 기존 가상 자료는 삭제하지 않습니다."
+}

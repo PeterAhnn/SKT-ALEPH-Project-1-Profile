@@ -1,0 +1,183 @@
+{
+  "checkedAt": "2026-10-15T04:22:28.260Z",
+  "kind": "개인 Chrome과 분리한 Chromium의 가상 WebAuthn 인증기로 실제 브라우저 API·서명·서버 검증기를 실행한 로컬 자동 시험입니다. 사용자 실제 기기 시험과 운영 배포 시험이 아닙니다.",
+  "accounts": [
+    {
+      "id": "5a4a48bd-cbc6-45ac-afb4-140548cfe031",
+      "name": "virtual-a"
+    },
+    {
+      "id": "0f8418db-32ab-4fcd-a4fc-516e3e69dc8b",
+      "name": "virtual-b"
+    }
+  ],
+  "records": [
+    {
+      "label": "A의 정상 조회",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "5a4a48bd-cbc6-45ac-afb4-140548cfe031",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "ba6b7bc0-5d7f-4c40-adc2-fd62506aa7c7",
+              "title": "가상 프로젝트 메모",
+              "body": "virtual-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다."
+            },
+            {
+              "id": "4c96f517-19c7-44c2-b6f5-fb4ad077c5e3",
+              "title": "가상 관심 목록",
+              "body": "virtual-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다."
+            },
+            {
+              "id": "6c65e436-73e8-4769-adcf-9ba54be143ab",
+              "title": "가상 연습 회고",
+              "body": "virtual-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "B의 정상 조회",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "0f8418db-32ab-4fcd-a4fc-516e3e69dc8b",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "5bbfdb5b-00f9-4560-937d-d92ddc8a886a",
+              "title": "가상 프로젝트 메모",
+              "body": "virtual-b의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다."
+            },
+            {
+              "id": "f7454a35-127f-4154-83ff-aa326e711a20",
+              "title": "가상 관심 목록",
+              "body": "virtual-b의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다."
+            },
+            {
+              "id": "84c4bb76-95af-4bc3-a946-7218bc70cfcc",
+              "title": "가상 연습 회고",
+              "body": "virtual-b의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "A에서 B로 접근",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/accounts/0f8418db-32ab-4fcd-a4fc-516e3e69dc8b/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "다른 계정의 비공개 자료는 볼 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B에서 A로 접근",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/accounts/5a4a48bd-cbc6-45ac-afb4-140548cfe031/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "다른 계정의 비공개 자료는 볼 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A가 주소에 B를 지정",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items?userId=0f8418db-32ab-4fcd-a4fc-516e3e69dc8b&owner=0f8418db-32ab-4fcd-a4fc-516e3e69dc8b",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "5a4a48bd-cbc6-45ac-afb4-140548cfe031",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "ba6b7bc0-5d7f-4c40-adc2-fd62506aa7c7",
+              "title": "가상 프로젝트 메모",
+              "body": "virtual-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다."
+            },
+            {
+              "id": "4c96f517-19c7-44c2-b6f5-fb4ad077c5e3",
+              "title": "가상 관심 목록",
+              "body": "virtual-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다."
+            },
+            {
+              "id": "6c65e436-73e8-4769-adcf-9ba54be143ab",
+              "title": "가상 연습 회고",
+              "body": "virtual-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "B가 주소에 A를 지정",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items?userId=5a4a48bd-cbc6-45ac-afb4-140548cfe031&owner=5a4a48bd-cbc6-45ac-afb4-140548cfe031",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "0f8418db-32ab-4fcd-a4fc-516e3e69dc8b",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "5bbfdb5b-00f9-4560-937d-d92ddc8a886a",
+              "title": "가상 프로젝트 메모",
+              "body": "virtual-b의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다."
+            },
+            {
+              "id": "f7454a35-127f-4154-83ff-aa326e711a20",
+              "title": "가상 관심 목록",
+              "body": "virtual-b의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다."
+            },
+            {
+              "id": "84c4bb76-95af-4bc3-a946-7218bc70cfcc",
+              "title": "가상 연습 회고",
+              "body": "virtual-b의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "countsBefore": {
+    "a": 3,
+    "b": 3
+  },
+  "countsAfter": {
+    "a": 3,
+    "b": 3
+  },
+  "source": "server/app.mjs의 currentUser 및 /api/private/* 처리",
+  "browserExportContainsCookieValues": false,
+  "browserExportContainsPrivateKey": false
+}

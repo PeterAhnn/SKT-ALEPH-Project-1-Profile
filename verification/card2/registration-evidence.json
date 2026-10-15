@@ -1,0 +1,222 @@
+{
+  "checkedAt": "2026-10-15T04:12:57.702Z",
+  "kind": "분리된 Chromium의 가상 WebAuthn 인증기로 실제 브라우저 API와 서버 검증기를 실행한 자동 시험. 실제 기기·실제 저장 위치는 미확인.",
+  "records": [
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]",
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": false
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "virtual-a",
+          "credentialName": "가상 인증기 A"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "e4aec458-7056-46e5-8bc5-650c82adfaa8",
+          "publicKey": {
+            "challenge": "zjmH2LzHlj1lFVjkI3MI5Z1GCfR1_V6tJXr2vSdE9bc",
+            "rp": {
+              "name": "내 소개 페이지 · 비공개 공간",
+              "id": "localhost"
+            },
+            "user": {
+              "id": "YzgwNGZmYTAtOTc3OC00YWM5LWE0MGMtNTJiNGE3MzBmNDdi",
+              "name": "virtual-a",
+              "displayName": "virtual-a"
+            },
+            "pubKeyCredParams": [
+              {
+                "alg": -7,
+                "type": "public-key"
+              },
+              {
+                "alg": -257,
+                "type": "public-key"
+              },
+              {
+                "alg": -8,
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "attestation": "none",
+            "excludeCredentials": [],
+            "authenticatorSelection": {
+              "residentKey": "required",
+              "userVerification": "required",
+              "requireResidentKey": true
+            },
+            "extensions": {
+              "credProps": true
+            },
+            "hints": []
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "e4aec458-7056-46e5-8bc5-650c82adfaa8",
+          "response": {
+            "id": "geuBcNPPxohW-51SsszM_bqIOK-I-xW-shLSm_3ZS7w",
+            "rawId": "geuBcNPPxohW-51SsszM_bqIOK-I-xW-shLSm_3ZS7w",
+            "response": {
+              "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVikSZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2NFAAAAAQECAwQFBgcIAQIDBAUGBwgAIIHrgXDTz8aIVvudUrLMzP26iDiviPsVvrIS0pv92Uu8pQECAyYgASFYIGOhmuNQ2Ct8Wkjfn72hJqSKRsTspY51WHsa-vDUGehRIlggfPPoFS33c2CauAUtHrIujI2l80-sp68hU7S1Nf00bgw",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiemptSDJMekhsajFsRlZqa0kzTUk1WjFHQ2ZSMV9WNnRKWHIydlNkRTliYyIsIm9yaWdpbiI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjE3NDgiLCJjcm9zc09yaWdpbiI6ZmFsc2V9",
+              "transports": [
+                "internal"
+              ],
+              "publicKeyAlgorithm": -7,
+              "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEY6Ga41DYK3xaSN-fvaEmpIpGxOyljnVYexr68NQZ6FF88-gVLfdzYJq4BS0esi6MjaXzT6ynryFTtLU1_TRuDA",
+              "authenticatorData": "SZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2NFAAAAAQECAwQFBgcIAQIDBAUGBwgAIIHrgXDTz8aIVvudUrLMzP26iDiviPsVvrIS0pv92Uu8pQECAyYgASFYIGOhmuNQ2Ct8Wkjfn72hJqSKRsTspY51WHsa-vDUGehRIlggfPPoFS33c2CauAUtHrIujI2l80-sp68hU7S1Nf00bgw"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {
+              "credProps": {
+                "rk": true
+              }
+            },
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "registered": true,
+          "user": {
+            "id": "c804ffa0-9778-4ac9-a40c-52b4a730f47b",
+            "name": "virtual-a"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]",
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c804ffa0-9778-4ac9-a40c-52b4a730f47b",
+            "name": "virtual-a"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]",
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c804ffa0-9778-4ac9-a40c-52b4a730f47b",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "e07e49e9-99a1-4ab7-8089-699b2186c893",
+              "title": "가상 프로젝트 메모",
+              "body": "virtual-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다."
+            },
+            {
+              "id": "1253f012-ca0c-4271-be0e-a7d051d0b482",
+              "title": "가상 관심 목록",
+              "body": "virtual-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다."
+            },
+            {
+              "id": "b02123a2-e914-498b-9ea6-d2ee513eed64",
+              "title": "가상 연습 회고",
+              "body": "virtual-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]",
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "geuBcNPPxohW-51SsszM_bqIOK-I-xW-shLSm_3ZS7w",
+              "name": "가상 인증기 A",
+              "createdAt": "2026-10-15T04:12:56.227Z",
+              "publicKey": "pQECAyYgASFYIGOhmuNQ2Ct8Wkjfn72hJqSKRsTspY51WHsa-vDUGehRIlggfPPoFS33c2CauAUtHrIujI2l80-sp68hU7S1Nf00bgw",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "freshChallenges": [
+    "wdYu95OSRWD1VvguyhynIZ7XRoSSrqAOA3GC6xAQDvg",
+    "yPtKq3nsIWnA4y6xvg3Ew3F2sG1EHF59b3vNO-Th7_I"
+  ],
+  "serverRetainedChallenges": [
+    "wdYu95OSRWD1VvguyhynIZ7XRoSSrqAOA3GC6xAQDvg",
+    "yPtKq3nsIWnA4y6xvg3Ew3F2sG1EHF59b3vNO-Th7_I"
+  ],
+  "storedPublicKey": {
+    "id": "geuBcNPPxohW-51SsszM_bqIOK-I-xW-shLSm_3ZS7w",
+    "userId": "c804ffa0-9778-4ac9-a40c-52b4a730f47b",
+    "name": "가상 인증기 A",
+    "createdAt": "2026-10-15T04:12:56.227Z",
+    "publicKey": "pQECAyYgASFYIGOhmuNQ2Ct8Wkjfn72hJqSKRsTspY51WHsa-vDUGehRIlggfPPoFS33c2CauAUtHrIujI2l80-sp68hU7S1Nf00bgw",
+    "counter": 1,
+    "transports": [
+      "internal"
+    ],
+    "deviceType": "singleDevice",
+    "backedUp": false,
+    "aaguid": "01020304-0506-0708-0102-030405060708"
+  },
+  "cancelled": {
+    "kind": "NotAllowedError를 모의 발생시킨 취소 화면 시험",
+    "countsAfter": {
+      "users": 1,
+      "credentials": 1,
+      "challenges": 0
+    }
+  }
+}

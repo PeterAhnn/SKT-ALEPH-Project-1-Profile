@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-15T04:24:25.190Z",
+  "kind": "합성 자료를 사용한 실제 로컬 HTTP 시험. 세션은 시험 코드에서 주입했으며 패스키 로그인 증거가 아님.",
+  "publicPage": {
+    "status": 200,
+    "privateMarkerPresent": false
+  },
+  "unauthenticated": {
+    "request": "GET /api/private/items",
+    "status": 401,
+    "response": {
+      "error": "패스키로 로그인해 주세요."
+    }
+  },
+  "syntheticAuthenticated": {
+    "request": "GET /api/private/items?userId=b",
+    "cookie": "[가림]",
+    "status": 200,
+    "response": {
+      "owner": "a",
+      "synthetic": true,
+      "items": [
+        {
+          "id": 1,
+          "title": "합성시험전용비공개표식-CARD1-1",
+          "body": "가상 자료"
+        },
+        {
+          "id": 2,
+          "title": "합성시험전용비공개표식-CARD1-2",
+          "body": "가상 자료"
+        },
+        {
+          "id": 3,
+          "title": "합성시험전용비공개표식-CARD1-3",
+          "body": "가상 자료"
+        }
+      ]
+    }
+  },
+  "otherAccountStatus": 403
+}
