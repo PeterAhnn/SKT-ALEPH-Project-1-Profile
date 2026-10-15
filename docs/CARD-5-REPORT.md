@@ -1,11 +1,12 @@
-# 카드 5 결과 — 로컬 계정 격리와 설명서·제출 준비
+# 카드 5 결과 — 로컬 원본 보존·운영 추가 검증·제출 준비
 
-- 작성일: 2026-10-15 (한국 표준시)
+- 갱신일: 2026-10-15 (한국 표준시)
 - 공식 카드: https://aleph-omega.vercel.app/cortex?panel=tasks
-- 작업: 서로 다른 가상 자료를 가진 계정 2개로 양방향 접근을 시험한 JSON을 대조했습니다. 실제 증거를 포함한 인증 설명서와 제출 준비 초안을 작성했습니다.
-- 범위: 가상 WebAuthn 인증기와 로컬 서버의 자동 시험입니다. 사용자 실제 기기·운영 DB·T08 운영 배포·공식 접수·승인은 완료하지 않았습니다.
+- 운영 결과물: https://skt-aleph-project-1.vercel.app/ 입니다.
+- 운영 배포: 653f9057cb63e5223b37b474f6f1fe1ceb61284c, dpl_HhDtMFtzJxQkicx29G4FXZNYdomd·READY입니다. 앱 코드는 최초 구현 90cc와 같습니다.
+- 범위: 최초 로컬 원본과 실제 운영 HTTPS 서버의 가상 인증기 자동 시험을 구분합니다. 사용자의 저장 위치·로그인·두 키 등록·삭제 후 사용은 직접 응답으로 확인했습니다. 두 URL·확인 4줄·판단 3줄 초안 입력도 마쳤습니다. 실제 기기 취소·일부 실패 동작·파일 선택·업로드·실제 제출·접수·승인은 별도로 미확인입니다.
 
-## 실제로 확인한 계정 격리 결과
+## 최초 로컬 계정 격리 원본 기록
 
 근거는 verification/card5/isolation-evidence.json입니다. 시험 시각은 2026-10-15T04:22:28.26Z입니다.
 
@@ -18,52 +19,65 @@
 | 거절 전후 자료 건수 | A는 3→3개, B는 3→3개로 같습니다. | countsBefore·countsAfter |
 | A가 URL에 B의 userId·owner를 지정 | 200이지만 owner는 A이고 A의 자료 3개만 돌아왔습니다. | records의 A가 주소에 B를 지정 |
 | B가 URL에 A의 userId·owner를 지정 | 200이지만 owner는 B이고 B의 자료 3개만 돌아왔습니다. | records의 B가 주소에 A를 지정 |
-| 내보내기 비밀값 점검 | browserExportContainsCookieValues=false, browserExportContainsPrivateKey=false입니다. 실제 저장 위치는 미확인입니다. | isolation-evidence.json·browser-export.json |
+| 내보내기 비밀값 점검 | browserExportContainsCookieValues=false, browserExportContainsPrivateKey=false입니다. 당시 로컬 시험에서는 사용자 실제 저장 위치를 확인하지 않았습니다. 이후 사용자 직접 확인은 별도로 기록합니다. | isolation-evidence.json·browser-export.json |
 
 거절 소스는 server/app.mjs 27행의 currentUser와 60~68행의 비공개 조회입니다. 64행에서 타인 계정 경로를 거절하고 67행에서 서버 세션의 user.id·user.items만 반환합니다. URL의 userId·owner는 조회 대상을 선택하는 값으로 사용하지 않습니다.
 
 화면 증거는 verification/card5/account-a.png와 account-b.png입니다. 브라우저의 실제 요청/응답 내보내기 파일은 verification/card5/browser-export.json이며, 이 문서는 파일을 읽어 기록이 있음을 확인했습니다. 사용자 실제 저장 위치를 확인한 자료로 취급하지 않습니다.
 
+
+## 운영 추가 검증
+
+근거는 verification/production/deployment.json·http-evidence.json과 verification/production/run-mv93637i-d8b509/production-evidence.json입니다. 운영 시험은 서버 자료·세션을 주입하지 않았고 실제 가상 인증기 서명으로 수행했습니다. 요청/응답 80건과 화면 8개를 남겼습니다.
+
+| 운영 확인 | 실제 결과 |
+|---|---|
+| 공개 소개·잠금 | 공개 200·index.html 원문 일치·잠금 경계·비로그인 HTML의 비공개 자료 없음입니다. |
+| 비로그인 비공개 API | 401입니다. |
+| 비밀 파일·서버 소스 경로 | /.env, /server/auth.mjs, /verification/private/runtime-credentials.json은 각각 404입니다. |
+| 등록·로그인 새 질문 | 각각 실제 다른 값 2개이며 설명서에 직접 추가했습니다. |
+| 한 계정 패스키 2개 | 공개키·이름·등록일이 있는 독립 가상 키 2개를 확인했습니다. |
+| 로그인 | 정상 200·변조 서명 401·타인 키 401·성공 질문 재사용 400입니다. |
+| 계정 격리 | A→B·B→A 모두 403, 각 자료 건수 3→3개, URL의 상대 계정값 지정에도 본인 자료만 반환했습니다. |
+| 로그아웃 | 구 쿠키 재사용 401이며 HttpOnly·Secure·SameSite=Strict입니다. |
+| 삭제 후 로그인 | 삭제 키 401·남은 키 200·0개 상태 로그인 401·익명 재등록 409·구 세션 401입니다. |
+| 시험 종료 상태 | 이번 실행의 A·B 가상 키는 모두 삭제했고 합성 계정·자료만 남깁니다. |
+
 ## 카드 5의 19개 기준 상태
 
-| 기준 | 확인된 결과와 남은 일 | 근거 |
+| 기준 | 현재 확인 결과와 남은 일 | 근거 |
 |---|---|---|
-| C01 | 기존 운영 주소는 200이지만 T08 영역이 없습니다. Git 자동 미리보기는 READY이나 Vercel 로그인 보호가 있습니다. T08 운영 배포·결과물 URL 공식 제출은 미완료입니다. | SUBMISSION.md·verification/public-access.json |
-| C02 | 앱 전체 커밋 90cc5592447b3dd22ed882b0600d8ee9f1632e68의 소스 URL이 새 무로그인 컨텍스트에서 200입니다. 공식 입력은 대기 중입니다. | SUBMISSION.md·verification/public-access.json의 source |
-| C03 | 소스 공개 접근은 확인했습니다. 미리보기는 Vercel 로그인 페이지이며 기존 운영 결과물에는 T08 영역이 없어 모든 제출 URL 조건은 부분 완료입니다. | verification/public-access.json |
-| C10 | 기존 운영 첫 화면은 무로그인 200·기존 소개입니다. T08 운영 기능은 없으며 미리보기 첫 화면은 보호 로그인 페이지입니다. | verification/public-access.json의 production·preview |
-| C11 | 기존 과제 1에 이어 수정했습니다. 카드 1 보고서에서 기존 공개 원문 보존을 확인했습니다. 최종 커밋·운영 화면 대조는 남았습니다. | CARD-1-REPORT.md |
-| C12 | 새 계정·비공개 자료는 가상 내용이며 기계적 비밀값 패턴 검사 findings는 없습니다. 기존 공개 이름·GitHub 링크는 사용자 승인에 따라 보존했습니다. 모든 개인정보 부재 판정은 하지 않았습니다. | isolation-evidence.json·verification/submission-readiness.json·AUTH-EXPLANATION.md ⑥ |
-| C36 | 가상 인증기 시험에서 virtual-a·virtual-b 두 계정과 서로 다른 자료를 확인했습니다. 실제 기기·운영은 미확인입니다. | isolation-evidence.json의 accounts·정상 조회 |
-| C37 | A→B 자료 접근은 실제 로컬 요청에서 403입니다. | isolation-evidence.json의 A에서 B로 접근 |
-| C38 | B→A 자료 접근도 실제 로컬 요청에서 403입니다. | isolation-evidence.json의 B에서 A로 접근 |
-| C39 | 양쪽 모두 거절 전후 3→3개로 같습니다. | isolation-evidence.json의 countsBefore·countsAfter |
-| C40 | 상대 계정 값을 URL에 넣어도 본인 owner와 자료만 반환됩니다. 요청·응답을 설명서에도 포함했습니다. | isolation-evidence.json·AUTH-EXPLANATION.md ④ |
-| C41 | 거절과 본인 자료 반환 소스의 실제 행 번호를 설명서에 적었습니다. | AUTH-EXPLANATION.md ③·④ |
-| C47 | 공식 인증 설명서 여섯 항목을 분리했습니다. 현재 MD 첨부 초안이며 제출은 보류했습니다. | AUTH-EXPLANATION.md |
-| C48 | 실제 사용한 라이브러리 이름·버전·서버 세션·저장소를 적었습니다. | AUTH-EXPLANATION.md ① |
-| C49 | 등록·로그인·로그아웃·비공개 조회 네 흐름의 실제 파일·행 번호를 대조해 적었습니다. 앱 소스 커밋은 90cc5592447b3dd22ed882b0600d8ee9f1632e68로 고정했습니다. | AUTH-EXPLANATION.md ③ |
-| C50 | 네 확인의 실제 성공·거절 요청/응답을 설명서에 직접 포함했습니다. 모두 로컬 자동 시험이라는 한계를 표시했습니다. | AUTH-EXPLANATION.md ④ |
-| C51 | 실제 기기 미확인, MCP 403과 CLI 대체 접근 확인·배포 미완료, 마지막 키 복구 부재, 단일 상태 행 확장 한계를 적었습니다. | AUTH-EXPLANATION.md ⑥·deployment-access.json |
-| C52 | 공개 심사자가 새 등록 없이 소개와 잠긴 영역을 보는 확인 4줄을 작성했습니다. 후보 운영 주소의 실제 동작 검증 전입니다. | SUBMISSION.md |
-| C53 | 사용자의 실제 결정과 AI 제안 거절을 판단 3줄로 적었습니다. | SUBMISSION.md·AUTH-EXPLANATION.md ⑤ |
+| C01 | 운영 결과물 HTTPS URL 준비·공개 앱 200 확인을 마쳤습니다. 제출 화면의 두 URL 초안 입력은 완료했으며 실제 제출은 대기 중입니다. | verification/production/http-evidence.json·SUBMISSION.md |
+| C02 | 운영 배포 커밋 653f의 전체 소스 URL을 새 무로그인 컨텍스트에서 공개 200으로 확인했습니다. 두 URL 초안 입력은 마쳤지만 실제 제출은 대기 중입니다. | SUBMISSION.md·deployment.json |
+| C03 | 운영 결과물과 최신 소스 653f 모두 초기 쿠키 0·무로그인 200을 확인했습니다. 보호된 초기 미리보기는 과거 관찰입니다. | http-evidence.json·verification/production/public-access.json |
+| C10 | 누구나 등록 없이 기존 공개 소개·잠금 영역을 봅니다. | production-evidence.json의 checks.public |
+| C11 | 기존 과제 1을 수정했고 공개 원문 보존·운영 원문 일치를 확인했습니다. | scripts/check-source.mjs·http-evidence.json |
+| C12 | 새 계정·자료는 합성이고 비밀값을 가렸습니다. 기존 공개 이름·GitHub 링크는 사용자 승인 보존이며 전체 개인정보 부재를 자동 판정하지 않았습니다. | AUTH-EXPLANATION.md ⑥·submission-readiness.json |
+| C36 | 운영에서 가상 패스키 계정 2개·서로 다른 자료 각 3개를 확인했습니다. 사용자의 실제 저장 위치·두 키 사용은 별도 직접 응답으로 확인했습니다. | checks.registration·isolation |
+| C37 | 운영 A→B 자료 조회 403입니다. | records의 A에서 B 자료 접근 거절 |
+| C38 | 운영 B→A 자료 조회 403입니다. | records의 B에서 A 자료 접근 거절 |
+| C39 | 운영 양쪽 자료 건수가 거절 전후 각각 3→3개입니다. | checks.isolation.countsBefore·countsAfter |
+| C40 | 상대 userId·owner를 URL에 넣어도 서버 세션 본인 자료만 200입니다. | records의 주소 계정 지정 요청 |
+| C41 | 거절 소스 위치를 실제 파일·행 번호로 설명서에 연결했습니다. | AUTH-EXPLANATION.md ③·④ |
+| C47 | 공식 6항목의 단독 MD 설명서를 작성하고 운영 실제 값을 추가했습니다. | AUTH-EXPLANATION.md |
+| C48 | 실제 구현 방식·라이브러리·버전·세션·저장소를 적었습니다. | 설명서 ① |
+| C49 | 등록·로그인·로그아웃·비공개 조회 네 흐름을 실제 소스로 연결했습니다. | 설명서 ③ |
+| C50 | 로컬 원본과 운영의 네 확인 성공·거절 요청/응답을 직접 포함했습니다. 실제 사용자 기기 시험과 구분했습니다. | 설명서 ④·production-evidence.json |
+| C51 | 실제 기기 일부 실패 동작 미확인·시험 합성 자료 잔존·마지막 키 복구 부재·단일 행의 확장 한계 등을 구체적으로 적었습니다. | 설명서 ⑥ |
+| C52 | 공개 심사자가 새 등록 없이 소개·잠금을 보는 확인 4줄을 작성했습니다. | SUBMISSION.md |
+| C53 | 사용자의 실제 기존 프로젝트 선택·공개 보존·카드 순서·47개 전수 검증·제출 조건 판단을 3줄로 적었습니다. | SUBMISSION.md·설명서 ⑤ |
 
-문서에 증거가 연결된 것은 공식 제출 완료와 다릅니다. 특히 C01·C02의 “제출되어 있다”는 상태는 아직 충족하지 않았습니다.
+## 근거와 상태 구분
 
-## 남긴 문서와 증거
+- 최초 로컬 자료는 verification/card1~card5와 앞의 원본 표에 보존했습니다. 이전 질문·키·시각을 최신 운영 값으로 덮어쓰지 않았습니다.
+- 승인·DB SQL·전용 역할·공식 CA/호스트·PgStore 지속 저장·롤백·권한 거절은 verification/db-setup.json·db-runtime.json과 DB-SETUP-PROPOSAL.md에 있습니다.
+- 최신 운영의 실제 요청 80건·화면 8개는 verification/production/run-mv93637i-d8b509/에 있습니다.
+- 초기 verification/public-access.json의 보호 preview·과거 운영은 당시 관찰이며 최신 운영 판정에는 production 증거를 사용합니다. 승격 전 CLI 302도 앱 응답이 아니었습니다.
+- AUTH-EXPLANATION.md는 실제 운영 질문·공개키·등록 본문·성공/거절을 직접 읽을 수 있는 단독 MD입니다.
+- C01·C02의 두 URL 초안은 입력했지만 실제 과제 제출·접수 결과는 아직 확인하지 않았습니다.
 
-- docs/AUTH-EXPLANATION.md: 등록 질문 2개·로그인 질문 2개·저장 공개키 실제 값·등록 본문·네 확인의 성공/거절 기록·소스 위치·한계를 포함한 단일 MD 설명서입니다.
-- docs/SUBMISSION.md: T08 운영 반영 전의 후보 결과물 주소와 공개 200을 확인한 전체 커밋 소스 URL, 확인 4줄·실제 판단 3줄, 접수 조건·완주 기준 구분을 담은 제출 준비 초안입니다.
-- verification/card5/isolation-evidence.json: 계정 2개·양방향 403·자료 건수·URL 계정 값 변경의 실제 자동 시험 기록입니다.
-- verification/card5/account-a.png·account-b.png·browser-export.json: 계정 화면과 브라우저 요청/응답 기록입니다.
-- verification/deployment-access.json: 기존 Vercel MCP 관리 읽기의 403과 공식 CLI의 프로젝트 읽기 200을 구분한 기록입니다. 앱의 계정 격리 403과 별개입니다. manualDeploymentExecuted=false와 automaticGitPreview의 READY·공개 보호·productionT08Deployed=false를 구분합니다.
-- verification/public-access.json: 새 무로그인 컨텍스트에서 소스 전체 커밋 200, Git 미리보기의 Vercel 로그인 보호, 기존 운영 주소의 기존 소개 200·T08 영역 부재를 확인한 기록입니다. 미리보기 /api/session도 로그인 페이지이며 앱 503을 관찰하지 않았습니다.
-- verification/submission-readiness.json: 설명서 형식·문안 길이·MD 한 파일 크기·기계적 비밀값 패턴 검사입니다. 전체 개인정보 부재·실제 기기·운영·공식 제출 완료 판정이 아닙니다.
+## 남은 일
 
-## 미완료와 제출 조건
+사용자는 구글 비밀번호 관리자·로그인·패스키 2개 등록→1개 삭제→남은 키 성공을 직접 확인했습니다. 실제 기기 취소·삭제 키 서명 거절·0개 정책에 대한 사용자 직접 확인은 없습니다. 근거는 verification/real-device-user-confirmation.json입니다. 제출문/첨부 검사·공식 입력·접수·승인은 별도로 확인해야 합니다. **운영 자동 시험 통과를 공식 47개 전체 통과로 표시하지 않습니다.**
 
-실제 사용자 기기의 패스키 저장 위치·등록 취소·두 키 사용은 미확인입니다. 앱 소스 전체 커밋과 그 URL의 공개 200 접근은 확인했습니다. Git 자동 미리보기는 READY이나 Vercel 로그인 보호가 있고, 기존 운영 주소에는 T08 영역이 없습니다. DB SQL 사용자 승인·전용 역할 적용·연결, 전용 환경 변수, T08 운영 배포·결과물 공개 접근, 전체 개인정보 검토, 공식 접수·승인은 남아 있습니다. SQL 승인 답변은 아직 없습니다.
-
-현재 제출 화면은 공개 결과물 URL 또는 PDF·DOCX·MD·TXT 보고서 한 파일 중 하나를 접수 필수 근거로 요구합니다. 파일을 택해 접수할 수 있더라도 완주 기준 C01·C02의 결과물·소스 HTTPS URL을 각각 제출해야 한다는 기준은 별도로 추적합니다. 최대 파일 수 10개·합계 8MB 등은 최종 업로드 직전에 다시 점검합니다.
-
-상태: 카드 5의 로컬 계정 격리 기록 대조와 설명서·제출 초안 작성을 마쳤습니다. 47개 기준 전체 완주·운영 검증·제출·승인 완료로 표시하지 않습니다.
+접수 화면의 공개 결과물 URL 또는 PDF·DOCX·MD·TXT 보고서 한 파일 조건과 C01·C02의 결과물·소스 URL 두 개 완주 기준은 구분합니다. 최대 10개·합계 8MB를 제출 직전에 확인합니다.

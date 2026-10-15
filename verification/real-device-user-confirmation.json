@@ -1,0 +1,20 @@
+{
+  "recordedAt": "2026-10-15T05:26:55.892Z",
+  "kind": "사용자가 현재 대화에서 직접 확인한 실제 기기 결과입니다. AI의 직접 브라우저 관찰이나 자동 시험 기록과 구분합니다.",
+  "source": "현재 대화의 실제 사용자 응답",
+  "storageLocation": {
+    "value": "구글 비밀번호 관리자",
+    "basis": "사용자 직접 응답",
+    "quote": "구글 비밀번호 관리자 로그인 성공"
+  },
+  "actualDeviceFlow": {
+    "registeredPasskeys": 2,
+    "deletedPasskeys": 1,
+    "remainingPasskeyLogin": "성공",
+    "quote": "패스키 2개 등록 → 1개 삭제 → 남은 키 로그인까지 성공했습니다."
+  },
+  "pinOrBiometricCollected": false,
+  "privateKeyOrSessionCollected": false,
+  "actualDeviceCancellationConfirmed": false,
+  "formalSubmissionConfirmed": false
+}

@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-15T05:17:34.997Z",
+  "deploymentId": "dpl_HhDtMFtzJxQkicx29G4FXZNYdomd",
+  "state": "READY",
+  "target": "production",
+  "url": "skt-aleph-project-1-profile-78e1fjpe8-peter-ahns-projects.vercel.app",
+  "sourceCommit": "653f9057cb63e5223b37b474f6f1fe1ceb61284c",
+  "projectId": "prj_wwGNGYz02H3LCX82AtEKxYNUWtd4",
+  "publicAlias": "skt-aleph-project-1.vercel.app",
+  "publicAliasDeploymentId": "dpl_HhDtMFtzJxQkicx29G4FXZNYdomd",
+  "previousAliasDeploymentId": "dpl_CkPbTNC169qwPDY1uNWXWLFyNXRZ",
+  "previousAliasDeploymentUrl": "skt-aleph-project-1-profile-62fe5es7b-peter-ahns-projects.vercel.app",
+  "privateUploadPolicy": ".vercelignore의 allowlist",
+  "protectionSettingsModified": false,
+  "productionVariables": [
+    "T08_DATABASE_URL (secret)",
+    "T08_DATABASE_CA (config)",
+    "T08_ORIGIN (config)"
+  ],
+  "secretValuesPrinted": false,
+  "publicAccessEvidence": "verification/production/http-evidence.json",
+  "prePromotionCliProbe": {
+    "status": 302,
+    "applicationResponseObserved": false
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-15T05:15:50.265Z",
+  "origin": "https://skt-aleph-project-1.vercel.app",
+  "authenticationBypassUsed": false,
+  "loginPerformed": false,
+  "records": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "exactIndexMatch": true,
+      "privateBoundaryPresent": true,
+      "hash": "4de7ba3750763aa84606189d2b8a2b7a25cc9686538485d2a60411869d27d626"
+    },
+    {
+      "path": "/api/session",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "body": {
+        "authenticated": false
+      }
+    },
+    {
+      "path": "/api/private/items",
+      "status": 401,
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "body": {
+        "error": "패스키로 로그인해 주세요."
+      }
+    },
+    {
+      "path": "/.env",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "/server/auth.mjs",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "path": "/verification/private/runtime-credentials.json",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate"
+    }
+  ]
+}

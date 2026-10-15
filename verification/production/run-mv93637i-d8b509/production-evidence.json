@@ -1,0 +1,2483 @@
+{
+  "checkedAt": "2026-10-15T05:17:56.924Z",
+  "runId": "run-mv93637i-d8b509",
+  "origin": "https://skt-aleph-project-1.vercel.app",
+  "kind": "승인된 운영 HTTPS 서버에 개인 Chrome과 분리한 Chromium 가상 WebAuthn 인증기로 접속한 자동 시험입니다. 서버 자료·세션을 직접 주입하지 않았습니다. 사용자 실제 기기·Windows Hello·구글 비밀번호 관리자·보안 키 시험이 아닙니다.",
+  "result": "자동 시험 통과",
+  "checks": {
+    "public": {
+      "status": 200,
+      "localSourceIdentical": true,
+      "sha256": "4de7ba3750763aa84606189d2b8a2b7a25cc9686538485d2a60411869d27d626",
+      "privateContentInHTML": false,
+      "anonymousPrivateStatus": 401,
+      "passwordInputCount": 0
+    },
+    "registration": {
+      "account": {
+        "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+        "name": "prod-mv93637i-d8b509-a"
+      },
+      "freshChallenges": [
+        "Jipp5Z9IWvYD26WPpZwGSBw9pQykR0LCf9cDyf2D18s",
+        "JBbW6dEwwLrqSXE_satG8-qH1KKkunWtprVkDpxPJWM"
+      ],
+      "publicKeys": [
+        {
+          "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+          "name": "운영 자동 시험 A 첫 가상 인증기",
+          "createdAt": "2026-10-15T05:16:31.996Z",
+          "publicKey": "pQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+          "deviceType": "singleDevice",
+          "backedUp": false,
+          "transports": [
+            "internal"
+          ]
+        },
+        {
+          "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+          "name": "운영 자동 시험 A 예비 가상 인증기",
+          "createdAt": "2026-10-15T05:16:42.899Z",
+          "publicKey": "pQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY",
+          "deviceType": "singleDevice",
+          "backedUp": false,
+          "transports": [
+            "internal"
+          ]
+        }
+      ],
+      "storageLocation": "Chromium 메모리의 서로 독립한 가상 WebAuthn 인증기 2개입니다. 사용자 실제 저장 위치는 확인하지 않았습니다."
+    },
+    "authentication": {
+      "freshChallenges": [
+        "A_swa-IbB4CxULitnqL4yRqqMHfEYwNOTDhdjiQFcRg",
+        "6QeckqtMtckxUWz4qkvUUuFyyonrnqt3SBxGMAqswzE"
+      ],
+      "validSignature": 200,
+      "invalidSignature": 401,
+      "replay": 400,
+      "otherAccountSignature": 401,
+      "otherKeyTest": "클라이언트 allowCredentials만 B의 실제 가상 패스키 ID로 지정해 서명했습니다. 서버 상태와 검증기는 변경하지 않았습니다."
+    },
+    "isolation": {
+      "accounts": [
+        {
+          "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "name": "prod-mv93637i-d8b509-a"
+        },
+        {
+          "id": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+          "name": "prod-mv93637i-d8b509-b"
+        }
+      ],
+      "countsBefore": {
+        "a": 3,
+        "b": 3
+      },
+      "countsAfter": {
+        "a": 3,
+        "b": 3
+      },
+      "aToB": 403,
+      "bToA": 403,
+      "queryTamperingReturnsOwnData": true
+    },
+    "logout": {
+      "oldSessionReused": 401,
+      "cookieFlags": {
+        "httpOnly": true,
+        "secure": true,
+        "sameSite": "Strict"
+      },
+      "cookie": "[가림]"
+    },
+    "deletion": {
+      "firstDelete": {
+        "deleted": true,
+        "remaining": 1,
+        "loggedOut": false,
+        "message": "패스키를 삭제했습니다. 남은 패스키 1개를 사용할 수 있습니다."
+      },
+      "deletedKeyLogin": 401,
+      "remainingKeyLogin": 200,
+      "lastDelete": {
+        "deleted": true,
+        "remaining": 0,
+        "loggedOut": true,
+        "message": "마지막 패스키를 삭제했습니다. 모든 세션을 종료했으며 이 계정에 다시 로그인할 수 없습니다. 계정과 가상 자료는 남지만 복구 수단은 없습니다."
+      },
+      "zeroKeyLogin": 401,
+      "anonymousReregistration": 409,
+      "finalSessionReuse": 401,
+      "deletedKeyTest": "클라이언트 allowCredentials만 삭제된 키 ID로 지정했습니다. 서버 상태와 검증기는 변경하지 않았습니다.",
+      "policy": "0개 계정과 합성 자료는 남지만 패스키 로그인과 비밀번호·이메일 복구는 제공하지 않습니다."
+    },
+    "residualSyntheticAccounts": {
+      "names": {
+        "a": "prod-mv93637i-d8b509-a",
+        "b": "prod-mv93637i-d8b509-b"
+      },
+      "aPasskeys": 0,
+      "bPasskeys": 0,
+      "note": "자동 시험에서 만든 가상 계정과 합성 자료는 운영 DB에 남습니다. 가상 패스키는 모두 삭제했습니다. 개인키를 파일로 보관하지 않았습니다."
+    }
+  },
+  "records": [
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": false
+        }
+      }
+    },
+    {
+      "label": "로그인 없는 비공개 자료 조회",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "패스키로 로그인해 주세요."
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a",
+          "credentialName": "운영 자동 시험 A 첫 가상 인증기"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "449674dc-3697-4605-a47d-628cca5c8d7a",
+          "publicKey": {
+            "challenge": "CGLMWk_rhnOh9A1iOxXgRdM7IalJ9wqc5qj-75K-LQs",
+            "rp": {
+              "name": "내 소개 페이지 · 비공개 공간",
+              "id": "skt-aleph-project-1.vercel.app"
+            },
+            "user": {
+              "id": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh",
+              "name": "prod-mv93637i-d8b509-a",
+              "displayName": "prod-mv93637i-d8b509-a"
+            },
+            "pubKeyCredParams": [
+              {
+                "alg": -7,
+                "type": "public-key"
+              },
+              {
+                "alg": -257,
+                "type": "public-key"
+              },
+              {
+                "alg": -8,
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "attestation": "none",
+            "excludeCredentials": [],
+            "authenticatorSelection": {
+              "residentKey": "required",
+              "userVerification": "required",
+              "requireResidentKey": true
+            },
+            "extensions": {
+              "credProps": true
+            },
+            "hints": []
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "449674dc-3697-4605-a47d-628cca5c8d7a",
+          "response": {
+            "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+            "rawId": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+            "response": {
+              "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVikYk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBhFAAAAAQECAwQFBgcIAQIDBAUGBwgAIGjRxEihPjP3JyIUz3FdvYE0CwalhwsxSpSL35A_QpZkpQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiQ0dMTVdrX3Jobk9oOUExaU94WGdSZE03SWFsSjl3cWM1cWotNzVLLUxRcyIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+              "transports": [
+                "internal"
+              ],
+              "publicKeyAlgorithm": -7,
+              "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnELNvSzf_A1m8oZp9B3TAdE6HbuzAQt2YE_2_VKERPTiPrSTC-QCYqF59lSzy90iiK3TZQ5pbnIpQJSSVhHriA",
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBhFAAAAAQECAwQFBgcIAQIDBAUGBwgAIGjRxEihPjP3JyIUz3FdvYE0CwalhwsxSpSL35A_QpZkpQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {
+              "credProps": {
+                "rk": true
+              }
+            },
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "registered": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+              "name": "운영 자동 시험 A 첫 가상 인증기",
+              "createdAt": "2026-10-15T05:16:31.996Z",
+              "publicKey": "pQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "A 첫 등록 공개키 목록",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+              "name": "운영 자동 시험 A 첫 가상 인증기",
+              "createdAt": "2026-10-15T05:16:31.996Z",
+              "publicKey": "pQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "등록 질문 1",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a",
+          "credentialName": "운영 자동 시험 질문 비교"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "e582f1d9-f2be-4e0e-bb8d-a92f92e25645",
+          "publicKey": {
+            "challenge": "Jipp5Z9IWvYD26WPpZwGSBw9pQykR0LCf9cDyf2D18s",
+            "rp": {
+              "name": "내 소개 페이지 · 비공개 공간",
+              "id": "skt-aleph-project-1.vercel.app"
+            },
+            "user": {
+              "id": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh",
+              "name": "prod-mv93637i-d8b509-a",
+              "displayName": "prod-mv93637i-d8b509-a"
+            },
+            "pubKeyCredParams": [
+              {
+                "alg": -7,
+                "type": "public-key"
+              },
+              {
+                "alg": -257,
+                "type": "public-key"
+              },
+              {
+                "alg": -8,
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "attestation": "none",
+            "excludeCredentials": [
+              {
+                "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "authenticatorSelection": {
+              "residentKey": "required",
+              "userVerification": "required",
+              "requireResidentKey": true
+            },
+            "extensions": {
+              "credProps": true
+            },
+            "hints": []
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "등록 질문 2",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a",
+          "credentialName": "운영 자동 시험 질문 비교"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "b33c8d9c-9159-4502-a511-2a5bcf85aa48",
+          "publicKey": {
+            "challenge": "JBbW6dEwwLrqSXE_satG8-qH1KKkunWtprVkDpxPJWM",
+            "rp": {
+              "name": "내 소개 페이지 · 비공개 공간",
+              "id": "skt-aleph-project-1.vercel.app"
+            },
+            "user": {
+              "id": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh",
+              "name": "prod-mv93637i-d8b509-a",
+              "displayName": "prod-mv93637i-d8b509-a"
+            },
+            "pubKeyCredParams": [
+              {
+                "alg": -7,
+                "type": "public-key"
+              },
+              {
+                "alg": -257,
+                "type": "public-key"
+              },
+              {
+                "alg": -8,
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "attestation": "none",
+            "excludeCredentials": [
+              {
+                "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "authenticatorSelection": {
+              "residentKey": "required",
+              "userVerification": "required",
+              "requireResidentKey": true
+            },
+            "extensions": {
+              "credProps": true
+            },
+            "hints": []
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "질문 비교 후 등록 취소",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/cancel",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "e582f1d9-f2be-4e0e-bb8d-a92f92e25645"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "cancelled": true,
+          "message": "등록 취소 요청을 처리했습니다. 완료 전 등록은 저장하지 않습니다."
+        }
+      }
+    },
+    {
+      "label": "질문 비교 후 등록 취소",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/cancel",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "b33c8d9c-9159-4502-a511-2a5bcf85aa48"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "cancelled": true,
+          "message": "등록 취소 요청을 처리했습니다. 완료 전 등록은 저장하지 않습니다."
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a",
+          "credentialName": "운영 자동 시험 A 예비 가상 인증기"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "2271713e-76ae-4ff4-a01b-b02845ed84de",
+          "publicKey": {
+            "challenge": "dyxpFfFT-4abMmpbgVm1DMrWlQPiAKbsQg7U0YmuWSQ",
+            "rp": {
+              "name": "내 소개 페이지 · 비공개 공간",
+              "id": "skt-aleph-project-1.vercel.app"
+            },
+            "user": {
+              "id": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh",
+              "name": "prod-mv93637i-d8b509-a",
+              "displayName": "prod-mv93637i-d8b509-a"
+            },
+            "pubKeyCredParams": [
+              {
+                "alg": -7,
+                "type": "public-key"
+              },
+              {
+                "alg": -257,
+                "type": "public-key"
+              },
+              {
+                "alg": -8,
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "attestation": "none",
+            "excludeCredentials": [
+              {
+                "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "authenticatorSelection": {
+              "residentKey": "required",
+              "userVerification": "required",
+              "requireResidentKey": true
+            },
+            "extensions": {
+              "credProps": true
+            },
+            "hints": []
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "2271713e-76ae-4ff4-a01b-b02845ed84de",
+          "response": {
+            "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "rawId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "response": {
+              "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVikYk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBhFAAAAAQECAwQFBgcIAQIDBAUGBwgAIJrvunU_8Su7zAAE9fJCaWL5-575W0iPaMl9BZMp-ASTpQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiZHl4cEZmRlQtNGFiTW1wYmdWbTFETXJXbFFQaUFLYnNRZzdVMFltdVdTUSIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlLCJvdGhlcl9rZXlzX2Nhbl9iZV9hZGRlZF9oZXJlIjoiZG8gbm90IGNvbXBhcmUgY2xpZW50RGF0YUpTT04gYWdhaW5zdCBhIHRlbXBsYXRlLiBTZWUgaHR0cHM6Ly9nb28uZ2wveWFiUGV4In0",
+              "transports": [
+                "internal"
+              ],
+              "publicKeyAlgorithm": -7,
+              "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEpENW-T4vrzWD0NevVU1EXtellTQ0SMqIoOfr5dKPyRBOLHf8unxY1KpWdXW4yNe8hzqipohv6anIrCCsI05FRg",
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBhFAAAAAQECAwQFBgcIAQIDBAUGBwgAIJrvunU_8Su7zAAE9fJCaWL5-575W0iPaMl9BZMp-ASTpQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {
+              "credProps": {
+                "rk": true
+              }
+            },
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "registered": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+              "name": "운영 자동 시험 A 첫 가상 인증기",
+              "createdAt": "2026-10-15T05:16:31.996Z",
+              "publicKey": "pQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            },
+            {
+              "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+              "name": "운영 자동 시험 A 예비 가상 인증기",
+              "createdAt": "2026-10-15T05:16:42.899Z",
+              "publicKey": "pQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "독립 가상 인증기 두 개의 서버 공개키 목록",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+              "name": "운영 자동 시험 A 첫 가상 인증기",
+              "createdAt": "2026-10-15T05:16:31.996Z",
+              "publicKey": "pQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            },
+            {
+              "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+              "name": "운영 자동 시험 A 예비 가상 인증기",
+              "createdAt": "2026-10-15T05:16:42.899Z",
+              "publicKey": "pQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": false
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-b",
+          "credentialName": "운영 자동 시험 B 가상 인증기"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "be78cb8a-a7b8-447b-8b66-39a3b880193f",
+          "publicKey": {
+            "challenge": "oxKtpntS6yjsaVs7n0rSlPXC40mJoqZiZADyuajZZLM",
+            "rp": {
+              "name": "내 소개 페이지 · 비공개 공간",
+              "id": "skt-aleph-project-1.vercel.app"
+            },
+            "user": {
+              "id": "MzUwNjQyNzUtODZhMi00YWQxLWI4NzEtZTgzZTFjZTJhY2Ni",
+              "name": "prod-mv93637i-d8b509-b",
+              "displayName": "prod-mv93637i-d8b509-b"
+            },
+            "pubKeyCredParams": [
+              {
+                "alg": -7,
+                "type": "public-key"
+              },
+              {
+                "alg": -257,
+                "type": "public-key"
+              },
+              {
+                "alg": -8,
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "attestation": "none",
+            "excludeCredentials": [],
+            "authenticatorSelection": {
+              "residentKey": "required",
+              "userVerification": "required",
+              "requireResidentKey": true
+            },
+            "extensions": {
+              "credProps": true
+            },
+            "hints": []
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "be78cb8a-a7b8-447b-8b66-39a3b880193f",
+          "response": {
+            "id": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+            "rawId": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+            "response": {
+              "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVikYk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBhFAAAAAQECAwQFBgcIAQIDBAUGBwgAICKO0o83QxbmC9LfEsHHNDo1uTr0V15Rr6B1ZL8VVUmOpQECAyYgASFYIPP_sYDxxlVR77zoRycjf-5A4uM5vYsZP3_ilDISIZVdIlggujN_aSRwUOpCVRqVK9BpOrkTdyneDEmSe2yvT-rYuX4",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoib3hLdHBudFM2eWpzYVZzN24wclNsUFhDNDBtSm9xWmlaQUR5dWFqWlpMTSIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+              "transports": [
+                "internal"
+              ],
+              "publicKeyAlgorithm": -7,
+              "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8_-xgPHGVVHvvOhHJyN_7kDi4zm9ixk_f-KUMhIhlV26M39pJHBQ6kJVGpUr0Gk6uRN3Kd4MSZJ7bK9P6ti5fg",
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBhFAAAAAQECAwQFBgcIAQIDBAUGBwgAICKO0o83QxbmC9LfEsHHNDo1uTr0V15Rr6B1ZL8VVUmOpQECAyYgASFYIPP_sYDxxlVR77zoRycjf-5A4uM5vYsZP3_ilDISIZVdIlggujN_aSRwUOpCVRqVK9BpOrkTdyneDEmSe2yvT-rYuX4"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {
+              "credProps": {
+                "rk": true
+              }
+            },
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "registered": true,
+          "user": {
+            "id": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+            "name": "prod-mv93637i-d8b509-b"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+            "name": "prod-mv93637i-d8b509-b"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "49bcde14-a4a8-4c4d-8fea-64e6a459720f",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "070a1962-8124-4314-85eb-bc03d55f4e5d",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "36263ac9-1f78-4510-aa83-324123770b33",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+              "name": "운영 자동 시험 B 가상 인증기",
+              "createdAt": "2026-10-15T05:16:52.344Z",
+              "publicKey": "pQECAyYgASFYIPP_sYDxxlVR77zoRycjf-5A4uM5vYsZP3_ilDISIZVdIlggujN_aSRwUOpCVRqVK9BpOrkTdyneDEmSe2yvT-rYuX4",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "B 등록 공개키 목록",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+              "name": "운영 자동 시험 B 가상 인증기",
+              "createdAt": "2026-10-15T05:16:52.344Z",
+              "publicKey": "pQECAyYgASFYIPP_sYDxxlVR77zoRycjf-5A4uM5vYsZP3_ilDISIZVdIlggujN_aSRwUOpCVRqVK9BpOrkTdyneDEmSe2yvT-rYuX4",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "B 등록 뒤 로그아웃",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "POST",
+        "path": "/api/logout",
+        "cookie": "[가림]",
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "loggedOut": true
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": false
+        }
+      }
+    },
+    {
+      "label": "B 본인 패스키 로그인: 새 질문",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-b"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "bfcc8668-e48a-4a50-b259-78560a45e38b",
+          "publicKey": {
+            "rpId": "skt-aleph-project-1.vercel.app",
+            "challenge": "D3_1w6zy24jABGCrxUb5a7l441v6awd-PsQO-KgrJHw",
+            "allowCredentials": [
+              {
+                "id": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "B 본인 패스키 로그인: 서명 검증",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "bfcc8668-e48a-4a50-b259-78560a45e38b",
+          "response": {
+            "id": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+            "rawId": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+            "response": {
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBgFAAAAAg",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiRDNfMXc2enkyNGpBQkdDcnhVYjVhN2w0NDF2NmF3ZC1Qc1FPLUtnckpIdyIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlLCJvdGhlcl9rZXlzX2Nhbl9iZV9hZGRlZF9oZXJlIjoiZG8gbm90IGNvbXBhcmUgY2xpZW50RGF0YUpTT04gYWdhaW5zdCBhIHRlbXBsYXRlLiBTZWUgaHR0cHM6Ly9nb28uZ2wveWFiUGV4In0",
+              "signature": "MEUCIBa0emW_7CLC2PijZ5uiSBACjb0umcle2vcsoHYA9eE4AiEAs4Y5OIjVT8zCyfI8yH5THLGtBAM-xKDIVvg9Xe1hQkk",
+              "userHandle": "MzUwNjQyNzUtODZhMi00YWQxLWI4NzEtZTgzZTFjZTJhY2Ni"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+            "name": "prod-mv93637i-d8b509-b"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "A 등록 뒤 로그아웃",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/logout",
+        "cookie": "[가림]",
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "loggedOut": true
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": false
+        }
+      }
+    },
+    {
+      "label": "로그인 질문 1",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "2357c0ad-768a-41c7-9dfb-694d718e0a9d",
+          "publicKey": {
+            "rpId": "skt-aleph-project-1.vercel.app",
+            "challenge": "A_swa-IbB4CxULitnqL4yRqqMHfEYwNOTDhdjiQFcRg",
+            "allowCredentials": [
+              {
+                "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              },
+              {
+                "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "로그인 질문 2",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "18053181-03f4-4901-bcec-457c9c050173",
+          "publicKey": {
+            "rpId": "skt-aleph-project-1.vercel.app",
+            "challenge": "6QeckqtMtckxUWz4qkvUUuFyyonrnqt3SBxGMAqswzE",
+            "allowCredentials": [
+              {
+                "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              },
+              {
+                "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "변조 서명 거절",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "18053181-03f4-4901-bcec-457c9c050173",
+          "response": {
+            "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "rawId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "response": {
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBgFAAAAAw",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiNlFlY2txdE10Y2t4VVd6NHFrdlVVdUZ5eW9ucm5xdDNTQnhHTUFxc3d6RSIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+              "signature": "MEUCIQCHOAdKEbTjQ707Al29hmqk26r8oxOqT9D-o1wGYj7W8gIgaj6Ebj1BmGgcOU5661joe_INfiGY3wd0j1kYnEQJHsY",
+              "userHandle": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "패스키 서명을 확인하지 못했습니다."
+        }
+      }
+    },
+    {
+      "label": "A 본인 패스키 정상 로그인: 새 질문",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "bd30826e-3dcc-48df-8dec-2e1fd8706c72",
+          "publicKey": {
+            "rpId": "skt-aleph-project-1.vercel.app",
+            "challenge": "n_Vp1vJuV4GuOtuJd1z7vdBoTZoMjKcpS7wxSDqiYDU",
+            "allowCredentials": [
+              {
+                "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              },
+              {
+                "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "A 본인 패스키 정상 로그인: 서명 검증",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "bd30826e-3dcc-48df-8dec-2e1fd8706c72",
+          "response": {
+            "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "rawId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "response": {
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBgFAAAABQ",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoibl9WcDF2SnVWNEd1T3R1SmQxejd2ZEJvVFpvTWpLY3BTN3d4U0RxaVlEVSIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlLCJvdGhlcl9rZXlzX2Nhbl9iZV9hZGRlZF9oZXJlIjoiZG8gbm90IGNvbXBhcmUgY2xpZW50RGF0YUpTT04gYWdhaW5zdCBhIHRlbXBsYXRlLiBTZWUgaHR0cHM6Ly9nb28uZ2wveWFiUGV4In0",
+              "signature": "MEQCIF1yJMajEKnHjXMrmgnFZr4AKGuDGeQ87qWwznrmblBoAiBO65GA3AqAnkKnVtaF-MDNBrCWAXk6fWAHGupd_D7Mww",
+              "userHandle": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "이미 성공한 질문·서명 재사용",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "bd30826e-3dcc-48df-8dec-2e1fd8706c72",
+          "response": {
+            "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "rawId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "response": {
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBgFAAAABQ",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoibl9WcDF2SnVWNEd1T3R1SmQxejd2ZEJvVFpvTWpLY3BTN3d4U0RxaVlEVSIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlLCJvdGhlcl9rZXlzX2Nhbl9iZV9hZGRlZF9oZXJlIjoiZG8gbm90IGNvbXBhcmUgY2xpZW50RGF0YUpTT04gYWdhaW5zdCBhIHRlbXBsYXRlLiBTZWUgaHR0cHM6Ly9nb28uZ2wveWFiUGV4In0",
+              "signature": "MEQCIF1yJMajEKnHjXMrmgnFZr4AKGuDGeQ87qWwznrmblBoAiBO65GA3AqAnkKnVtaF-MDNBrCWAXk6fWAHGupd_D7Mww",
+              "userHandle": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": {
+          "error": "로그인 질문을 이미 사용했거나 찾을 수 없습니다. 다시 시작해 주세요."
+        }
+      }
+    },
+    {
+      "label": "남의 패스키 시험용 A 로그인 질문",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "f84a0ed5-59b1-49a0-a879-b9370ca6e21a",
+          "publicKey": {
+            "rpId": "skt-aleph-project-1.vercel.app",
+            "challenge": "Rl9m7ZuyfbR-4SVxgb85wRtD0lOt8_0Wr88W9vx2Yu4",
+            "allowCredentials": [
+              {
+                "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              },
+              {
+                "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "B 패스키 서명으로 A 로그인 시도",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "f84a0ed5-59b1-49a0-a879-b9370ca6e21a",
+          "response": {
+            "id": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+            "rawId": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+            "response": {
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBgFAAAAAw",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiUmw5bTdadXlmYlItNFNWeGdiODV3UnREMGxPdDhfMFdyODhXOXZ4Mll1NCIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+              "signature": "MEYCIQC90g_k9wiPgzXbwj2Lc5TEGXmILzwC3crugqi3t9aUPAIhANS_OfbQ8GbWJQe1LZ6zTLMSAaOLGcU21W4HlI4S5q5n",
+              "userHandle": "MzUwNjQyNzUtODZhMi00YWQxLWI4NzEtZTgzZTFjZTJhY2Ni"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "이 계정에 등록된 패스키로 로그인해 주세요."
+        }
+      }
+    },
+    {
+      "label": "A 정상 자료 조회",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "B 정상 자료 조회",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "49bcde14-a4a8-4c4d-8fea-64e6a459720f",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "070a1962-8124-4314-85eb-bc03d55f4e5d",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "36263ac9-1f78-4510-aa83-324123770b33",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "A에서 B 자료 접근 거절",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/accounts/35064275-86a2-4ad1-b871-e83e1ce2accb/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "다른 계정의 비공개 자료는 볼 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "B에서 A 자료 접근 거절",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/accounts/c29e9d3c-bf3b-406e-be7f-04699d17033a/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "error": "다른 계정의 비공개 자료는 볼 수 없습니다."
+        }
+      }
+    },
+    {
+      "label": "A가 주소에 B 계정을 지정",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items?userId=35064275-86a2-4ad1-b871-e83e1ce2accb&owner=35064275-86a2-4ad1-b871-e83e1ce2accb",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "B가 주소에 A 계정을 지정",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items?userId=c29e9d3c-bf3b-406e-be7f-04699d17033a&owner=c29e9d3c-bf3b-406e-be7f-04699d17033a",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "49bcde14-a4a8-4c4d-8fea-64e6a459720f",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "070a1962-8124-4314-85eb-bc03d55f4e5d",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "36263ac9-1f78-4510-aa83-324123770b33",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "거절 후 A 자료 건수 확인",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "거절 후 B 자료 건수 확인",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "49bcde14-a4a8-4c4d-8fea-64e6a459720f",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "070a1962-8124-4314-85eb-bc03d55f4e5d",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "36263ac9-1f78-4510-aa83-324123770b33",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+              "name": "운영 자동 시험 A 첫 가상 인증기",
+              "createdAt": "2026-10-15T05:16:31.996Z",
+              "publicKey": "pQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            },
+            {
+              "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+              "name": "운영 자동 시험 A 예비 가상 인증기",
+              "createdAt": "2026-10-15T05:16:42.899Z",
+              "publicKey": "pQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+            "name": "prod-mv93637i-d8b509-b"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "35064275-86a2-4ad1-b871-e83e1ce2accb",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "49bcde14-a4a8-4c4d-8fea-64e6a459720f",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "070a1962-8124-4314-85eb-bc03d55f4e5d",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "36263ac9-1f78-4510-aa83-324123770b33",
+              "body": "prod-mv93637i-d8b509-b의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+              "name": "운영 자동 시험 B 가상 인증기",
+              "createdAt": "2026-10-15T05:16:52.344Z",
+              "publicKey": "pQECAyYgASFYIPP_sYDxxlVR77zoRycjf-5A4uM5vYsZP3_ilDISIZVdIlggujN_aSRwUOpCVRqVK9BpOrkTdyneDEmSe2yvT-rYuX4",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "로그아웃 뒤 세션 폐기 확인",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/logout",
+        "cookie": "[가림]",
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "loggedOut": true
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": false
+        }
+      }
+    },
+    {
+      "label": "로그아웃 전 쿠키 값을 다시 전송",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "패스키로 로그인해 주세요."
+        }
+      }
+    },
+    {
+      "label": "삭제 시험 전 A 예비 패스키 로그인: 새 질문",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "c13a9d06-5a02-4737-b649-4e488ff26c86",
+          "publicKey": {
+            "rpId": "skt-aleph-project-1.vercel.app",
+            "challenge": "7M1f6eeyyWRY6KMkb0FQzAA-m_skY2f38emXnVg_qqU",
+            "allowCredentials": [
+              {
+                "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              },
+              {
+                "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "삭제 시험 전 A 예비 패스키 로그인: 서명 검증",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "c13a9d06-5a02-4737-b649-4e488ff26c86",
+          "response": {
+            "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "rawId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "response": {
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBgFAAAABw",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiN00xZjZlZXl5V1JZNktNa2IwRlF6QUEtbV9za1kyZjM4ZW1YblZnX3FxVSIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+              "signature": "MEQCIFgoNO7cpvtp7WsLM8mbtJtgkaHTWtUAaf3gQgLWKoMYAiAMMtBBDPoKXrKsJDadz5DqvPYsRgxkqAIyBSS0KEIYTQ",
+              "userHandle": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+              "name": "운영 자동 시험 A 첫 가상 인증기",
+              "createdAt": "2026-10-15T05:16:31.996Z",
+              "publicKey": "pQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            },
+            {
+              "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+              "name": "운영 자동 시험 A 예비 가상 인증기",
+              "createdAt": "2026-10-15T05:16:42.899Z",
+              "publicKey": "pQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/passkeys/aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+        "cookie": "[가림]",
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "deleted": true,
+          "remaining": 1,
+          "loggedOut": false,
+          "message": "패스키를 삭제했습니다. 남은 패스키 1개를 사용할 수 있습니다."
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+              "name": "운영 자동 시험 A 예비 가상 인증기",
+              "createdAt": "2026-10-15T05:16:42.899Z",
+              "publicKey": "pQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "첫 패스키 삭제 뒤 로그아웃",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/logout",
+        "cookie": "[가림]",
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "loggedOut": true
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": false
+        }
+      }
+    },
+    {
+      "label": "삭제된 패스키 재로그인 질문",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "ec1c2795-bd71-4314-95a8-7d022584c1f7",
+          "publicKey": {
+            "rpId": "skt-aleph-project-1.vercel.app",
+            "challenge": "CBt7nqVY0y2mYja08Ko3hu9jM0hJB2bSd-zZK57IVcM",
+            "allowCredentials": [
+              {
+                "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "삭제된 패스키의 실제 서명 거절",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "ec1c2795-bd71-4314-95a8-7d022584c1f7",
+          "response": {
+            "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+            "rawId": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+            "response": {
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBgFAAAAAg",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiQ0J0N25xVlkweTJtWWphMDhLbzNodTlqTTBoSkIyYlNkLXpaSzU3SVZjTSIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+              "signature": "MEUCIQDwzv5PrwycL_Ds26ZG8lcV0BSMIhiEh6Wso6AcwHgaKAIgQJrLcEY4Q4ZOpbqUN6IB0uUB6MaxuDHTdi3ljXbzlMA",
+              "userHandle": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "이 계정에 등록된 패스키로 로그인해 주세요."
+        }
+      }
+    },
+    {
+      "label": "남은 예비 패스키 로그인: 새 질문",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "challengeId": "257fbdd5-af28-48fb-af7d-c35b1e7607af",
+          "publicKey": {
+            "rpId": "skt-aleph-project-1.vercel.app",
+            "challenge": "EzwKSnxyWVTiCmujTrc7aR-7i7CPSYs8fXtKOYdLv68",
+            "allowCredentials": [
+              {
+                "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+                "transports": [
+                  "internal"
+                ],
+                "type": "public-key"
+              }
+            ],
+            "timeout": 300000,
+            "userVerification": "required"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "남은 예비 패스키 로그인: 서명 검증",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/verify",
+        "cookie": "[가림]",
+        "body": {
+          "challengeId": "257fbdd5-af28-48fb-af7d-c35b1e7607af",
+          "response": {
+            "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "rawId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+            "response": {
+              "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBgFAAAACA",
+              "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiRXp3S1NueHlXVlRpQ211alRyYzdhUi03aTdDUFNZczhmWHRLT1lkTHY2OCIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+              "signature": "MEQCIBfezpJBOMhEOhkdacG2Pnrr_ciXaGlFhoZ7r4Zk4v-sAiBUXPT6NkBhxLkuSqvJpca_8kVYADhnz490o0sBIeK26w",
+              "userHandle": "YzI5ZTlkM2MtYmYzYi00MDZlLWJlN2YtMDQ2OTlkMTcwMzNh"
+            },
+            "type": "public-key",
+            "clientExtensionResults": {},
+            "authenticatorAttachment": "platform"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        },
+        "setCookie": "[가림]"
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": true,
+          "user": {
+            "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+            "name": "prod-mv93637i-d8b509-a"
+          }
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "synthetic": true,
+          "items": [
+            {
+              "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+              "title": "가상 프로젝트 메모"
+            },
+            {
+              "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+              "title": "가상 관심 목록"
+            },
+            {
+              "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+              "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+              "title": "가상 연습 회고"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/passkeys",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "credentials": [
+            {
+              "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+              "name": "운영 자동 시험 A 예비 가상 인증기",
+              "createdAt": "2026-10-15T05:16:42.899Z",
+              "publicKey": "pQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY",
+              "deviceType": "singleDevice",
+              "backedUp": false,
+              "transports": [
+                "internal"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/passkeys/mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+        "cookie": "[가림]",
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "deleted": true,
+          "remaining": 0,
+          "loggedOut": true,
+          "message": "마지막 패스키를 삭제했습니다. 모든 세션을 종료했으며 이 계정에 다시 로그인할 수 없습니다. 계정과 가상 자료는 남지만 복구 수단은 없습니다."
+        }
+      }
+    },
+    {
+      "label": "서비스 화면이 실제로 보낸 요청",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/session",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "authenticated": false
+        }
+      }
+    },
+    {
+      "label": "패스키 0개 계정 로그인",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/login/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "이 계정에서 사용할 수 있는 패스키가 없습니다. 별칭과 등록 상태를 확인해 주세요."
+        }
+      }
+    },
+    {
+      "label": "패스키 0개 계정의 익명 재등록 거절",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "POST",
+        "path": "/api/passkeys/register/options",
+        "cookie": "[가림]",
+        "body": {
+          "name": "prod-mv93637i-d8b509-a",
+          "credentialName": "0개 계정 재등록 시도"
+        }
+      },
+      "response": {
+        "status": 409,
+        "body": {
+          "error": "이미 있는 별칭입니다. 기존 패스키로 로그인한 뒤 추가해 주세요."
+        }
+      }
+    },
+    {
+      "label": "마지막 키 삭제 전 세션 재사용",
+      "actor": "가상 계정 A",
+      "request": {
+        "method": "GET",
+        "path": "/api/private/items",
+        "cookie": "[가림]"
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "error": "패스키로 로그인해 주세요."
+        }
+      }
+    },
+    {
+      "label": "자동 시험 종료 후 B 가상 패스키 삭제",
+      "actor": "가상 계정 B",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/passkeys/Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+        "cookie": "[가림]",
+        "body": {}
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "deleted": true,
+          "remaining": 0,
+          "loggedOut": true,
+          "message": "마지막 패스키를 삭제했습니다. 모든 세션을 종료했으며 이 계정에 다시 로그인할 수 없습니다. 계정과 가상 자료는 남지만 복구 수단은 없습니다."
+        },
+        "setCookie": "[가림]"
+      }
+    }
+  ],
+  "limits": [
+    "실제 사용자 기기 등록·취소·저장 위치를 확인한 기록이 아닙니다.",
+    "공식 제출·심사·승인 결과가 아닙니다.",
+    "실패한 실행에서는 이미 생성된 가상 계정·키가 일부 남을 수 있습니다. 해당 실행 기록의 마지막 성공 요청을 확인합니다."
+  ]
+}

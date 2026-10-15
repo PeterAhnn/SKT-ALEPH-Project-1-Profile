@@ -1,23 +1,33 @@
-# T08 인증 구현 설명서 — 제출 보류 중인 MD 첨부 초안
+# T08 인증 구현 설명서 — 운영 검증·사용자 직접 확인·남은 한계
 
-- 작성일: 2026-10-15 (한국 표준시)
+- 갱신일: 2026-10-15 (한국 표준시)
 - 공식 출처: https://aleph-omega.vercel.app/cortex?panel=tasks
-- 작업 대상: 기존 SKT-ALEPH-Project-1-Profile입니다. 공개 소개 내용은 유지하고 별도의 비공개 공간을 추가했습니다.
-- 상태: 로컬 HTTP·Chromium 가상 WebAuthn 인증기 시험과 증거 문서화를 수행했습니다. 이 파일은 단독으로 읽을 수 있는 MD 보고서 초안이며 **현재 제출은 보류**합니다.
-- 소스: https://github.com/PeterAhnn/SKT-ALEPH-Project-1-Profile/commit/90cc5592447b3dd22ed882b0600d8ee9f1632e68 입니다. 새 무로그인 브라우저에서 200으로 열린 것을 verification/public-access.json에서 확인했습니다. 공식 소스 URL 입력은 대기 중입니다.
-- 배포 상태: 같은 앱 커밋의 Git 자동 미리보기는 READY입니다. 새 무로그인 브라우저에서는 미리보기 첫 화면과 /api/session 모두 Vercel 로그인 페이지로 이동했습니다. 앱의 503 응답을 관찰한 결과가 아닙니다. 기존 운영 주소는 200으로 과제 1 소개가 열리지만 T08 영역은 없습니다.
-- 미완료: DB SQL 사용자 승인·전용 역할과 운영 DB 연결, 전용 환경 변수, T08 운영 배포·공개 접근 검증, 실제 사용자 기기의 등록·취소·저장 위치·두 키 시험, 공식 접수·승인입니다.
-- 실제 개인정보 대신 virtual-a·virtual-b 계정과 가상 프로젝트 메모·관심 목록·회고를 사용했습니다. 기록의 Cookie·Set-Cookie는 [가림]으로 보존합니다. 시험별 계정·키 ID가 다른 것은 분리된 로컬 시험을 각각 수행했기 때문입니다.
+- 공개 결과물: https://skt-aleph-project-1.vercel.app/ 입니다. 공개 200·기존 소개 원문 일치·잠금 경계·비로그인 비공개 조회 401을 확인했습니다.
+- 운영 배포: 653f9057cb63e5223b37b474f6f1fe1ceb61284c, dpl_HhDtMFtzJxQkicx29G4FXZNYdomd이며 READY입니다. 앱 코드는 최초 구현 90cc5592447b3dd22ed882b0600d8ee9f1632e68과 같습니다.
+- 고정 소스 URL: https://github.com/PeterAhnn/SKT-ALEPH-Project-1-Profile/commit/653f9057cb63e5223b37b474f6f1fe1ceb61284c 입니다. verification/production/public-access.json에서 초기 쿠키가 0개인 무로그인 컨텍스트의 200을 확인했습니다. 제출 화면의 두 URL·확인 4줄·판단 3줄 초안을 입력하고 화면값을 확인했습니다. 파일 선택·업로드·실제 제출은 아직 하지 않았습니다.
+- 완료: 승인된 DB SQL·전용 역할·인증서/호스트 검증 연결·전용 운영 환경 변수·T08 운영 배포·실제 HTTPS 서버에 대한 가상 인증기 자동 시험입니다.
+- 사용자 직접 확인: 구글 비밀번호 관리자에서 로그인했고 패스키 2개 등록→1개 삭제→남은 키 로그인까지 성공했다고 답했습니다. 근거는 verification/real-device-user-confirmation.json이며 AI의 직접 관찰이 아닙니다.
+- 미확인: 실제 기기 취소, 삭제된 실제 키의 서명 거절·0개 정책에 대한 사용자 직접 확인, 물리적으로 독립된 복구 기기 확보, 파일 선택·업로드·실제 제출·접수·심사·승인입니다. **공식 47개 기준 전체 통과를 주장하지 않습니다.**
+- 운영 시험은 서버 자료·세션을 직접 주입하지 않고 실제 브라우저 API와 서명으로 수행했습니다. 요청/응답 80건과 화면 8개는 verification/production/run-mv93637i-d8b509/production-evidence.json 및 같은 폴더에 있습니다.
+- 새 계정·비공개 자료는 합성 내용입니다. Cookie·Set-Cookie·세션·토큰은 [가림]이며 개인키를 파일로 저장하지 않았습니다. 기존 공개 소개의 이름·GitHub 링크는 사용자 승인에 따라 보존했습니다. 아래 로컬 원본 인용은 그대로 유지하고 운영 확인을 추가합니다.
 
 ## ① 무엇으로 붙였나
 
 Node.js 24용 서버에 SimpleWebAuthn 라이브러리를 사용했습니다. package.json에 고정한 버전은 @simplewebauthn/server 14.0.3, @simplewebauthn/browser 14.0.0입니다. 브라우저는 WebAuthn 등록·로그인 API를 호출하고 서버 라이브러리가 질문·출처·RP ID·사용자 확인·서명을 검증합니다.
 
-로그인 뒤에는 **서버 측 세션**으로 계정을 식별합니다. 무작위 세션 값은 HttpOnly·SameSite=Strict 쿠키로 보내며 서버에는 그 값의 SHA-256 해시와 계정·인증 키·만료 시각을 보관합니다. 세션 수명은 30분, 일회용 질문 수명은 5분입니다. 운영 HTTPS에서는 Secure 쿠키를 사용하도록 구현했습니다. 실제 로컬 시험은 localhost HTTP이므로 cookieFlags.secure는 false입니다. 운영의 실제 쿠키 동작은 아직 검증하지 않았습니다.
+로그인 뒤에는 **서버 측 세션**으로 계정을 식별합니다. 무작위 세션 값은 HttpOnly·SameSite=Strict 쿠키로 보내며 서버에는 그 값의 SHA-256 해시와 계정·인증 키·만료 시각을 보관합니다. 세션 수명은 30분, 일회용 질문 수명은 5분입니다. 운영 HTTPS 시험에서 HttpOnly=true·Secure=true·SameSite=Strict를 확인했습니다. 아래 보존한 최초 로컬 시험은 localhost HTTP이므로 cookieFlags.secure=false입니다. 서로 다른 환경의 결과를 구분합니다.
 
-로컬 시험은 Git에서 제외하는 JSON 상태 저장소를 사용했습니다. 운영용 PgStore는 pg 8.23.1을 사용해 PostgreSQL 트랜잭션으로 상태를 저장하도록 구현했으나, 운영 DB 스키마·역할 적용과 실제 운영 연결은 수행하지 않았습니다. 운영 설정이 없으면 비공개 API는 준비 중이라는 503 응답을 내도록 구현했습니다.
+로컬 시험은 Git에서 제외하는 JSON 상태 저장소를 사용했습니다. 운영은 pg 8.23.1의 PgStore와 승인된 기존 Supabase DB의 새 t08 스키마·전용 t08_runtime 역할을 사용합니다. SQL 적용·LOGIN·공식 CA/호스트 검증 연결·별도 풀 지속 저장·롤백·권한 거절과 기존 T07 7개 테이블 건수 보존을 verification/db-setup.json·db-runtime.json에서 확인했습니다. 서버 전용 운영 환경 변수 T08_DATABASE_URL·T08_DATABASE_CA·T08_ORIGIN을 적용했고 실제 비밀값은 공개하지 않았습니다. 작업용 비공개 파일은 로컬에 남아 있으므로 로컬에 비밀값이 전혀 없다고 주장하지 않습니다. Git·배포 제외와 ACL 제한의 보관 상태는 T08-HANDOFF.md에 적었습니다. 운영 설정이 없는 경우의 503 처리는 구현된 오류 흐름이며 과거 보호된 미리보기의 로그인 페이지를 앱 503으로 해석하지 않습니다.
 
-개인 Chrome과 분리한 Chromium 가상 인증기로 실제 브라우저 WebAuthn API와 서명을 실행했습니다. 이는 실제 사용자 기기·Windows Hello·구글 비밀번호 관리자·물리 보안 키의 사용 증거가 아닙니다. 사용자 패스키 저장 위치는 **미확인**입니다.
+개인 Chrome과 분리한 Chromium 가상 인증기로 실제 브라우저 WebAuthn API와 서명을 실행했습니다. 이 자동 시험은 사용자 실제 기기·Windows Hello·비밀번호 관리자·물리 보안 키의 사용 증거와 구분합니다.
+
+사용자는 이후 실제 저장 위치와 사용 결과를 다음 두 응답으로 직접 확인했습니다. C26의 저장 위치는 **구글 비밀번호 관리자**입니다. AI가 화면이나 실제 기기 동작을 직접 관찰한 기록으로 바꾸지 않습니다.
+
+> 구글 비밀번호 관리자 로그인 성공
+
+> 패스키 2개 등록 → 1개 삭제 → 남은 키 로그인까지 성공했습니다.
+
+근거: verification/real-device-user-confirmation.json입니다. 실제 기기 취소·삭제 키 서명 거절·마지막 키 0개 정책은 사용자 응답에 없으므로 해당 동작의 자동 시험과 분리합니다. 사용자 PIN·생체정보·개인키·세션 값을 받지 않았습니다.
 
 ## ② 왜 그걸 골랐나
 
@@ -27,7 +37,7 @@ Node.js 24용 서버에 SimpleWebAuthn 라이브러리를 사용했습니다. pa
 
 ## ③ 어디를 어떻게 고쳤나
 
-아래 행 번호는 2026-10-15에 실제 작업 파일을 대조한 값입니다. 앱 소스 기준 커밋은 90cc5592447b3dd22ed882b0600d8ee9f1632e68이며 원격 브랜치와 일치를 확인했습니다. 위 전체 커밋 URL은 새 무로그인 컨텍스트에서 200으로 공개 접근되었습니다. 같은 코드의 Git 자동 미리보기는 READY이지만 배포 보호 때문에 Vercel 로그인 페이지가 열립니다. T08 운영 배포와 실제 기기 시험은 남아 있습니다.
+아래 행 번호는 2026-10-15에 실제 앱 파일을 대조한 값입니다. 운영 소스 기준은 653f9057cb63e5223b37b474f6f1fe1ceb61284c이며 앱 코드는 최초 구현 90cc5592447b3dd22ed882b0600d8ee9f1632e68과 같습니다. 운영 배포 ID는 dpl_HhDtMFtzJxQkicx29G4FXZNYdomd이고 공개 별칭에서 실제 앱을 확인했습니다. 이전 Git 미리보기의 보호 로그인 페이지와 운영 승격 전 CLI 탐색의 302는 과거 관찰입니다.
 
 | 흐름 | 브라우저 시작 위치 | 서버 위치와 역할 |
 |---|---|---|
@@ -139,9 +149,425 @@ verification/card3/authentication-evidence.json의 freshChallenges입니다. 서
 }
 ```
 
+
+### 운영 추가 확인: 새 질문·공개키·등록 본문
+
+다음 값은 verification/production/run-mv93637i-d8b509/production-evidence.json에서 직접 읽었습니다. 운영 등록 질문 2개와 로그인 질문 2개가 각각 다릅니다. 한 계정에 이름·등록일이 있는 독립 가상 인증기 공개키 2개가 저장되었습니다. 이는 공개키이며 비밀번호가 아니고, 개인키는 전송·기록하지 않습니다. 아래 자동 시험 당시 저장 위치 설명은 그대로 보존하며 이후 사용자 확인의 구글 비밀번호 관리자와 구분합니다.
+
+```json
+{
+  "registrationChallenges": [
+    "Jipp5Z9IWvYD26WPpZwGSBw9pQykR0LCf9cDyf2D18s",
+    "JBbW6dEwwLrqSXE_satG8-qH1KKkunWtprVkDpxPJWM"
+  ],
+  "loginChallenges": [
+    "A_swa-IbB4CxULitnqL4yRqqMHfEYwNOTDhdjiQFcRg",
+    "6QeckqtMtckxUWz4qkvUUuFyyonrnqt3SBxGMAqswzE"
+  ],
+  "storedPublicKeys": [
+    {
+      "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+      "name": "운영 자동 시험 A 첫 가상 인증기",
+      "createdAt": "2026-10-15T05:16:31.996Z",
+      "publicKey": "pQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+      "deviceType": "singleDevice",
+      "backedUp": false,
+      "transports": [
+        "internal"
+      ]
+    },
+    {
+      "id": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+      "name": "운영 자동 시험 A 예비 가상 인증기",
+      "createdAt": "2026-10-15T05:16:42.899Z",
+      "publicKey": "pQECAyYgASFYIKRDVvk-L681g9DXr1VNRF7XpZU0NEjKiKDn6-XSj8kQIlggTix3_Lp8WNSqVnV1uMjXvIc6oqaIb-mpyKwgrCNORUY",
+      "deviceType": "singleDevice",
+      "backedUp": false,
+      "transports": [
+        "internal"
+      ]
+    }
+  ],
+  "storageLocation": "Chromium 메모리의 서로 독립한 가상 WebAuthn 인증기 2개입니다. 사용자 실제 저장 위치는 확인하지 않았습니다."
+}
+```
+
+운영 서버로 보낸 등록 요청·응답 원본 한 건입니다. 등록 확인 데이터와 공개키 관련 필드가 있으며 개인키·비밀번호는 없습니다.
+
+```json
+{
+  "label": "서비스 화면이 실제로 보낸 요청",
+  "actor": "가상 계정 A",
+  "request": {
+    "method": "POST",
+    "path": "/api/passkeys/register/verify",
+    "cookie": "[가림]",
+    "body": {
+      "challengeId": "449674dc-3697-4605-a47d-628cca5c8d7a",
+      "response": {
+        "id": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+        "rawId": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ",
+        "response": {
+          "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVikYk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBhFAAAAAQECAwQFBgcIAQIDBAUGBwgAIGjRxEihPjP3JyIUz3FdvYE0CwalhwsxSpSL35A_QpZkpQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g",
+          "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiQ0dMTVdrX3Jobk9oOUExaU94WGdSZE03SWFsSjl3cWM1cWotNzVLLUxRcyIsIm9yaWdpbiI6Imh0dHBzOi8vc2t0LWFsZXBoLXByb2plY3QtMS52ZXJjZWwuYXBwIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+          "transports": [
+            "internal"
+          ],
+          "publicKeyAlgorithm": -7,
+          "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnELNvSzf_A1m8oZp9B3TAdE6HbuzAQt2YE_2_VKERPTiPrSTC-QCYqF59lSzy90iiK3TZQ5pbnIpQJSSVhHriA",
+          "authenticatorData": "Yk7Y1DPOWFBvDJV7tmQ0mNNcyC4Qhm-YQb7XYJTXWBhFAAAAAQECAwQFBgcIAQIDBAUGBwgAIGjRxEihPjP3JyIUz3FdvYE0CwalhwsxSpSL35A_QpZkpQECAyYgASFYIJxCzb0s3_wNZvKGafQd0wHROh27swELdmBP9v1ShET0Ilgg4j60kwvkAmKhefZUs8vdIoit02UOaW5yKUCUklYR64g"
+        },
+        "type": "public-key",
+        "clientExtensionResults": {
+          "credProps": {
+            "rk": true
+          }
+        },
+        "authenticatorAttachment": "platform"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "registered": true,
+      "user": {
+        "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+        "name": "prod-mv93637i-d8b509-a"
+      }
+    }
+  }
+}
+```
+
 ## ④ 안 열리는 것을 확인한 기록
 
-모든 기록은 로컬 자동 시험입니다. 운영 배포와 실제 사용자 기기의 통과 결과로 표시하지 않습니다. 성공·거절의 상태 코드와 본문은 각 JSON 파일의 실제 값을 옮겼습니다.
+아래의 **운영 추가 확인**은 실제 운영 HTTPS 서버에 가상 인증기로 접속한 기록입니다. 이어지는 최초 로컬 원본은 보존합니다. 두 환경 모두 사용자 실제 기기 시험으로 표시하지 않습니다. 성공·거절 값은 실제 증거 JSON에서 옮겼습니다.
+
+### 운영 추가 확인: 네 가지 성공·거절과 세션 폐기
+
+| 확인 | 실제 정상 요청·응답 | 실제 거절 요청·응답 |
+|---|---|---|
+| 로그인 없이 열기 | A의 GET /api/private/items → 200·합성 항목 3개입니다. | 비로그인 같은 GET → 401·패스키로 로그인해 주세요. |
+| 남의 패스키·자료 | A·B 본인 키 로그인과 본인 자료는 200입니다. | B 키로 A 로그인 401, A→B·B→A 자료 요청은 각각 403입니다. |
+| 질문 재사용·서명 | 정상 서명 검증은 200입니다. | 변조 서명 401, 성공한 질문·서명 재전송은 400입니다. |
+| 삭제 후 로그인 | 첫 키 삭제 후 예비 키로 200입니다. | 삭제 키 401, 마지막 키 삭제 후 로그인 401·익명 재등록 409·구 세션 401입니다. |
+
+운영 로그아웃 전 쿠키를 재전송하면 401입니다. HttpOnly·Secure·SameSite=Strict를 실제 응답에서 확인했습니다. 계정 자료는 A·B 각각 3→3개로 유지되며 URL에 상대 userId·owner를 넣어도 세션 본인 자료만 반환했습니다.
+
+운영 요청 일부의 핵심 필드를 아래 JSON에 직접 발췌했습니다. Cookie·Set-Cookie는 [가림]을 유지했습니다. 생략한 서명 전체와 나머지 80개 요청의 원본은 위 production-evidence.json에 있습니다.
+
+```json
+{
+  "unauthenticated": {
+    "label": "로그인 없는 비공개 자료 조회",
+    "actor": "가상 계정 A",
+    "request": {
+      "method": "GET",
+      "path": "/api/private/items",
+      "cookie": "[가림]"
+    },
+    "response": {
+      "status": 401,
+      "body": {
+        "error": "패스키로 로그인해 주세요."
+      }
+    }
+  },
+  "normalRead": {
+    "label": "A 정상 자료 조회",
+    "actor": "가상 계정 A",
+    "request": {
+      "method": "GET",
+      "path": "/api/private/items",
+      "cookie": "[가림]"
+    },
+    "response": {
+      "status": 200,
+      "body": {
+        "owner": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+        "synthetic": true,
+        "items": [
+          {
+            "id": "17987a0a-f4db-47d7-98d5-de4299c90ba1",
+            "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 종이비행기 분류 도구의 화면을 준비합니다.",
+            "title": "가상 프로젝트 메모"
+          },
+          {
+            "id": "df4d9516-8181-4844-8d41-4773c1cacb52",
+            "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 가상 연구실 달빛 1호와 별빛 2호를 비교합니다.",
+            "title": "가상 관심 목록"
+          },
+          {
+            "id": "80518e1d-68d7-4b78-ac7c-05f8f71e04fc",
+            "body": "prod-mv93637i-d8b509-a의 합성 자료입니다. 오늘은 예제 자료로 패스키 동작을 연습했습니다.",
+            "title": "가상 연습 회고"
+          }
+        ]
+      }
+    }
+  },
+  "aToB": {
+    "label": "A에서 B 자료 접근 거절",
+    "actor": "가상 계정 A",
+    "request": {
+      "method": "GET",
+      "path": "/api/private/accounts/35064275-86a2-4ad1-b871-e83e1ce2accb/items",
+      "cookie": "[가림]"
+    },
+    "response": {
+      "status": 403,
+      "body": {
+        "error": "다른 계정의 비공개 자료는 볼 수 없습니다."
+      }
+    }
+  },
+  "bToA": {
+    "label": "B에서 A 자료 접근 거절",
+    "actor": "가상 계정 B",
+    "request": {
+      "method": "GET",
+      "path": "/api/private/accounts/c29e9d3c-bf3b-406e-be7f-04699d17033a/items",
+      "cookie": "[가림]"
+    },
+    "response": {
+      "status": 403,
+      "body": {
+        "error": "다른 계정의 비공개 자료는 볼 수 없습니다."
+      }
+    }
+  },
+  "countsBefore": {
+    "a": 3,
+    "b": 3
+  },
+  "countsAfter": {
+    "a": 3,
+    "b": 3
+  },
+  "logout": {
+    "label": "로그아웃 뒤 세션 폐기 확인",
+    "actor": "가상 계정 A",
+    "request": {
+      "method": "POST",
+      "path": "/api/logout",
+      "cookie": "[가림]",
+      "body": {}
+    },
+    "response": {
+      "status": 200,
+      "body": {
+        "loggedOut": true
+      },
+      "setCookie": "[가림]"
+    }
+  },
+  "staleSession": {
+    "label": "로그아웃 전 쿠키 값을 다시 전송",
+    "actor": "가상 계정 A",
+    "request": {
+      "method": "GET",
+      "path": "/api/private/items",
+      "cookie": "[가림]"
+    },
+    "response": {
+      "status": 401,
+      "body": {
+        "error": "패스키로 로그인해 주세요."
+      }
+    }
+  }
+}
+```
+
+운영 정상 서명·변조·재사용·타인 키의 실제 요청·응답을 발췌합니다. 요청 본문의 필드는 원본 값이며 다음 블록에서는 credential ID·challengeId·서명 값을 원본에서 발췌합니다. 각 전체 응답 본문은 그대로 옮겼습니다.
+
+```json
+[
+  {
+    "label": "A 본인 패스키 정상 로그인: 서명 검증",
+    "request": {
+      "method": "POST",
+      "path": "/api/passkeys/login/verify",
+      "cookie": "[가림]",
+      "body": {
+        "challengeId": "bd30826e-3dcc-48df-8dec-2e1fd8706c72",
+        "credentialId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+        "signature": "MEQCIF1yJMajEKnHjXMrmgnFZr4AKGuDGeQ87qWwznrmblBoAiBO65GA3AqAnkKnVtaF-MDNBrCWAXk6fWAHGupd_D7Mww"
+      }
+    },
+    "response": {
+      "status": 200,
+      "body": {
+        "authenticated": true,
+        "user": {
+          "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "setCookie": "[가림]"
+    }
+  },
+  {
+    "label": "변조 서명 거절",
+    "request": {
+      "method": "POST",
+      "path": "/api/passkeys/login/verify",
+      "cookie": "[가림]",
+      "body": {
+        "challengeId": "18053181-03f4-4901-bcec-457c9c050173",
+        "credentialId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+        "signature": "MEUCIQCHOAdKEbTjQ707Al29hmqk26r8oxOqT9D-o1wGYj7W8gIgaj6Ebj1BmGgcOU5661joe_INfiGY3wd0j1kYnEQJHsY"
+      }
+    },
+    "response": {
+      "status": 401,
+      "body": {
+        "error": "패스키 서명을 확인하지 못했습니다."
+      }
+    }
+  },
+  {
+    "label": "이미 성공한 질문·서명 재사용",
+    "request": {
+      "method": "POST",
+      "path": "/api/passkeys/login/verify",
+      "cookie": "[가림]",
+      "body": {
+        "challengeId": "bd30826e-3dcc-48df-8dec-2e1fd8706c72",
+        "credentialId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM",
+        "signature": "MEQCIF1yJMajEKnHjXMrmgnFZr4AKGuDGeQ87qWwznrmblBoAiBO65GA3AqAnkKnVtaF-MDNBrCWAXk6fWAHGupd_D7Mww"
+      }
+    },
+    "response": {
+      "status": 400,
+      "body": {
+        "error": "로그인 질문을 이미 사용했거나 찾을 수 없습니다. 다시 시작해 주세요."
+      }
+    }
+  },
+  {
+    "label": "B 패스키 서명으로 A 로그인 시도",
+    "request": {
+      "method": "POST",
+      "path": "/api/passkeys/login/verify",
+      "cookie": "[가림]",
+      "body": {
+        "challengeId": "f84a0ed5-59b1-49a0-a879-b9370ca6e21a",
+        "credentialId": "Io7SjzdDFuYL0t8Swcc0OjW5OvRXXlGvoHVkvxVVSY4",
+        "signature": "MEYCIQC90g_k9wiPgzXbwj2Lc5TEGXmILzwC3crugqi3t9aUPAIhANS_OfbQ8GbWJQe1LZ6zTLMSAaOLGcU21W4HlI4S5q5n"
+      }
+    },
+    "response": {
+      "status": 401,
+      "body": {
+        "error": "이 계정에 등록된 패스키로 로그인해 주세요."
+      }
+    }
+  }
+]
+```
+
+운영 삭제 후 남은 키 성공·삭제 키 거절·0개 상태의 실제 요청 일부입니다. 서명 원본은 같은 증거 파일에 있고 아래에는 핵심 요청 필드와 실제 응답을 옮깁니다.
+
+```json
+[
+  {
+    "label": "삭제된 패스키의 실제 서명 거절",
+    "request": {
+      "method": "POST",
+      "path": "/api/passkeys/login/verify",
+      "cookie": "[가림]",
+      "body": {
+        "challengeId": "ec1c2795-bd71-4314-95a8-7d022584c1f7",
+        "credentialId": "aNHESKE-M_cnIhTPcV29gTQLBqWHCzFKlIvfkD9ClmQ"
+      }
+    },
+    "response": {
+      "status": 401,
+      "body": {
+        "error": "이 계정에 등록된 패스키로 로그인해 주세요."
+      }
+    }
+  },
+  {
+    "label": "남은 예비 패스키 로그인: 서명 검증",
+    "request": {
+      "method": "POST",
+      "path": "/api/passkeys/login/verify",
+      "cookie": "[가림]",
+      "body": {
+        "challengeId": "257fbdd5-af28-48fb-af7d-c35b1e7607af",
+        "credentialId": "mu-6dT_xK7vMAAT18kJpYvn7nvlbSI9oyX0Fkyn4BJM"
+      }
+    },
+    "response": {
+      "status": 200,
+      "body": {
+        "authenticated": true,
+        "user": {
+          "id": "c29e9d3c-bf3b-406e-be7f-04699d17033a",
+          "name": "prod-mv93637i-d8b509-a"
+        }
+      },
+      "setCookie": "[가림]"
+    }
+  },
+  {
+    "label": "패스키 0개 계정 로그인",
+    "request": {
+      "method": "POST",
+      "path": "/api/passkeys/login/options",
+      "cookie": "[가림]",
+      "body": {
+        "name": "prod-mv93637i-d8b509-a"
+      }
+    },
+    "response": {
+      "status": 401,
+      "body": {
+        "error": "이 계정에서 사용할 수 있는 패스키가 없습니다. 별칭과 등록 상태를 확인해 주세요."
+      }
+    }
+  },
+  {
+    "label": "패스키 0개 계정의 익명 재등록 거절",
+    "request": {
+      "method": "POST",
+      "path": "/api/passkeys/register/options",
+      "cookie": "[가림]",
+      "body": {
+        "name": "prod-mv93637i-d8b509-a",
+        "credentialName": "0개 계정 재등록 시도"
+      }
+    },
+    "response": {
+      "status": 409,
+      "body": {
+        "error": "이미 있는 별칭입니다. 기존 패스키로 로그인한 뒤 추가해 주세요."
+      }
+    }
+  },
+  {
+    "label": "마지막 키 삭제 전 세션 재사용",
+    "request": {
+      "method": "GET",
+      "path": "/api/private/items",
+      "cookie": "[가림]"
+    },
+    "response": {
+      "status": 401,
+      "body": {
+        "error": "패스키로 로그인해 주세요."
+      }
+    }
+  }
+]
+```
+
+### 최초 로컬 시험 원본
+
+아래 네 확인과 코드 블록은 최초 로컬 시험의 원본 값입니다. 운영 재검증 결과가 생겼어도 이전 질문·키·시각을 덮어쓰지 않았습니다.
 
 ### 확인 1: 로그인 없이 열기
 
@@ -700,14 +1126,16 @@ verification/card3/authentication-evidence.json의 freshChallenges입니다. 서
 - **내가 직접 판단한 일:** 사용자는 T08-C11에 맞춰 기존 과제 1을 직접 수정하고 공개 내용을 유지하기로 결정했습니다. 카드 1~5 순서, 기준 47개 전수 검증, 단계별 증거 보고, 제출 조건 확인을 명시적으로 승인했습니다.
 - **AI 제안을 따르지 않은 일:** AI의 별도 과제 8 저장소 제안을 따르지 않았습니다. 사용자가 “1번에서 만든 것을 수정해야 하는 것 아니냐”고 지적하여 기존 과제 1에 이어 붙이는 방식으로 정정했습니다.
 
-사용자가 실제 패스키 저장 위치·기기 시험 결과를 확인했다는 판단은 아직 기록하지 않았습니다.
+사용자의 실제 저장 위치·두 키 등록·하나 삭제 뒤 남은 키 로그인 성공은 위 직접 응답으로 기록했습니다. 자동 시험의 요청·응답을 사용자의 실제 동작 기록으로 바꾸지 않았습니다.
 
 ## ⑥ 아직 못 막은 것
 
-1. **실제 사용자 기기의 동작·저장 위치는 미확인입니다.** 자동 시험의 가상 인증기 결과만 있습니다. 실제 기기에서 등록·취소·두 키 사용·삭제 후 로그인과 저장 위치를 확인해야 합니다. 물리 기기 분실·동기화 계정 복구 결과는 이 시험으로 증명하지 못합니다.
-2. **운영 배포·지속 저장 검증이 남았습니다.** verification/deployment-access.json의 Vercel MCP 관리 API 읽기는 403·forbidden이지만, 공식 CLI 64.2.0의 기존 자격으로 기존 프로젝트·팀·Node.js 24·Git 연결을 확인했습니다. 상위 작업은 같은 앱 커밋의 Git 자동 미리보기 READY를 확인했습니다. verification/public-access.json에서 미리보기 첫 화면과 /api/session은 모두 Vercel 로그인 페이지로 이동했으며 앱 응답은 관찰되지 않았습니다. **미리보기 생성은 완료했지만 보호되어 있고 T08 운영 배포는 하지 않았습니다.** 기존 운영 주소는 200·기존 소개이며 T08 영역은 없습니다. 남은 운영 조건은 DB SQL 사용자 승인·전용 역할 적용·연결, 전용 환경 변수 구성, T08 운영 배포·지속 저장 검증입니다. SQL 승인 답변은 아직 없습니다.
-3. **마지막 패스키를 모두 잃거나 삭제하면 기존 계정으로 돌아갈 수 없습니다.** 비밀번호·이메일·복구 코드가 없습니다. 마지막 키 삭제는 모든 세션을 끝내며 기존 계정·가상 자료가 남습니다. 이 제한을 삭제 전 확인 문구와 삭제 후 메시지에 표시했습니다.
-4. **운영 DB의 단일 상태 행은 확장에 한계가 있습니다.** server/pg-store.mjs 95행의 SELECT … FOR UPDATE로 한 행을 잠그고, 108행에서 전체 JSON 상태를 갱신합니다. 상태 변경 요청이 직렬화되고 자료가 커질수록 읽기·복제·쓰기 비용이 늘어납니다. 소규모 과제 구현이며 다수 사용자의 동시 요청 부하·장기 운영 규모를 검증하지 않았습니다.
-5. **전체 개인정보 부재를 자동 판정하지 않았습니다.** 기존 소개의 이름·공개 GitHub 링크는 사용자의 공개 내용 보존 승인에 따라 유지했습니다. 새 시험 계정·비공개 자료는 합성 내용이며 쿠키·토큰 등 비밀값을 가렸습니다. verification/submission-readiness.json의 기계적 비밀값 패턴 검사에서 findings는 없지만, 이것이 기존 실명까지 포함해 모든 개인정보가 없다는 판정은 아닙니다. 앱 전체 커밋과 소스의 공개 200 접근은 확인했으며 공식 입력은 대기 중입니다. C12의 전체 제출물 조건은 보존 범위를 명시한 상태로 별도 검토해야 합니다.
+1. **실제 기기의 일부 실패 동작은 사용자 확인이 없습니다.** 사용자는 구글 비밀번호 관리자·로그인·패스키 2개 등록·1개 삭제·남은 키 로그인 성공을 직접 확인했습니다. 실제 기기 취소·삭제된 실제 키의 서명 401·0개 정책은 직접 확인했다고 답하지 않았습니다. 삭제 키·0개 상태는 운영 가상 인증기 자동 시험으로만 검증했습니다. 같은 동기화 보관함의 두 패스키가 물리적으로 독립된 복구 수단이라는 판단도 하지 않았습니다.
+2. **시험 합성 계정과 자료가 남습니다.** 이번 운영 자동 시험의 가상 계정 2개는 합성 자료 각 3개를 남깁니다. 시험 패스키는 모두 삭제해 aPasskeys=0·bPasskeys=0입니다. 이 결과를 계정·자료 전체 삭제로 표현하지 않습니다.
+3. **마지막 패스키를 모두 잃거나 삭제하면 기존 계정으로 돌아갈 수 없습니다.** 비밀번호·이메일·복구 코드가 없습니다. 마지막 키 삭제 후 모든 세션을 끝내며 기존 계정·합성 자료는 남습니다. 실제 운영 자동 시험에서도 로그인 401·익명 재등록 409·구 세션 401로 확인했습니다.
+4. **단일 상태 행의 확장 한계가 있습니다.** server/pg-store.mjs 95행의 SELECT … FOR UPDATE와 108행의 전체 JSON 갱신은 상태 변경을 직렬화합니다. 자료 증가에 따른 복제·쓰기 비용과 다수 사용자 부하·장기 운영 규모를 검증하지 않았습니다. DB 연결·지속 저장 성공은 이런 확장성 검증을 뜻하지 않습니다.
+5. **전체 개인정보 부재와 공식 제출은 자동 판정하지 않았습니다.** 기존 소개의 이름·공개 GitHub 링크는 사용자의 공개 내용 보존 승인에 따라 유지했습니다. 새 시험 자료는 합성 내용이고 비밀값은 가렸습니다. 기계적 패턴 findings=[]는 기존 실명까지 포함해 모든 개인정보가 없다는 판정이 아닙니다. 결과물·소스 URL은 제출 화면에 초안으로 입력했지만 실제 제출·파일 업로드·접수·심사·승인은 확인하지 않았습니다.
 
-현재 접수 화면은 공개 결과물 URL 또는 PDF·DOCX·MD·TXT 보고서 한 파일을 허용하지만, 카드 C01·C02의 결과물·소스 HTTPS URL 제출 기준은 별도입니다. 이 MD 한 파일이 접수 형식에 맞더라도 **47개 기준 완주·운영 검증·공식 접수·승인 완료를 뜻하지 않습니다.**
+과거 관찰: verification/public-access.json의 초기 미리보기는 Vercel 로그인 보호였고 운영 승격 전 CLI 탐색도 302였습니다. 이후 verification/production/deployment.json의 운영 승격과 http-evidence.json의 공개 앱 200을 확인했습니다. 과거 보호 관찰을 현재 운영 상태로 사용하지 않습니다.
+
+현재 접수 화면은 공개 결과물 URL 또는 PDF·DOCX·MD·TXT 보고서 한 파일을 허용하지만, C01·C02의 URL 두 개 공식 제출 기준은 별도입니다. 이 단독 MD는 로컬 원본과 운영 추가 확인을 모두 포함합니다. **운영 자동 시험 통과와 공식 47개 기준 전체 완주·실제 기기·공식 접수·승인은 구분합니다.**

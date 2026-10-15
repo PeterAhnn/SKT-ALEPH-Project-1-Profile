@@ -1,0 +1,116 @@
+{
+  "checkedAt": "2026-10-15T05:13:59.578Z",
+  "userApproved": true,
+  "approvedScope": "기존 skt-aleph-t07-diary-auth DB의 새 t08 스키마·t08_runtime 역할·상태 행 및 전용 서버 연결",
+  "schemaMigration": "t08_private_passkey_state",
+  "runtimeCredentialActivated": true,
+  "credentialPrinted": false,
+  "privateCredentialFilesGitIgnored": true,
+  "rolePrivileges": {
+    "role": {
+      "rolname": "t08_runtime",
+      "rolsuper": false,
+      "rolinherit": false,
+      "rolcanlogin": true,
+      "rolcreatedb": false,
+      "rolbypassrls": false,
+      "rolcreaterole": false
+    },
+    "table": {
+      "owner": "postgres",
+      "relrowsecurity": true,
+      "relforcerowsecurity": true
+    },
+    "policy": [
+      {
+        "cmd": "ALL",
+        "qual": "(slot = 'main'::text)",
+        "roles": [
+          "t08_runtime"
+        ],
+        "policyname": "t08_runtime_state",
+        "with_check": "(slot = 'main'::text)"
+      }
+    ],
+    "publicDenied": true,
+    "runtimeStatePrivileges": {
+      "delete": false,
+      "insert": false,
+      "select": true,
+      "update": true
+    },
+    "existingTablePrivileges": [
+      {
+        "table": "completion_events",
+        "delete": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "table": "executions",
+        "delete": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "table": "plan_history",
+        "delete": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "table": "plans",
+        "delete": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "table": "request_receipts",
+        "delete": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "table": "reviews",
+        "delete": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "table": "tasks",
+        "delete": false,
+        "select": false,
+        "update": false
+      }
+    ]
+  },
+  "existingT07CountsBefore": {
+    "plans": 3,
+    "tasks": 8,
+    "reviews": 1,
+    "executions": 4,
+    "plan_history": 7,
+    "request_receipts": 8,
+    "completion_events": 8
+  },
+  "existingT07CountsAfter": {
+    "plans": 3,
+    "tasks": 8,
+    "reviews": 1,
+    "executions": 4,
+    "plan_history": 7,
+    "request_receipts": 8,
+    "completion_events": 8
+  },
+  "existingT07CountsUnchanged": true,
+  "existingT07OrDefenseTablesModified": false,
+  "connection": {
+    "host": "aws-0-ap-northeast-2.pooler.supabase.com",
+    "port": 6543,
+    "mode": "transaction",
+    "sslCertificateVerified": true,
+    "sslHostnameVerified": true,
+    "caSource": "https://raw.githubusercontent.com/supabase/supabase/master/apps/studio/hooks/custom-content/custom-content.json"
+  },
+  "runtimeProof": "verification/db-runtime.json"
+}

@@ -159,7 +159,8 @@ try {
   const publicResponse = await a.context.request.get(origin + '/');
   const publicHTML = await publicResponse.text();
   assert.equal(publicResponse.status(), 200);
-  assert.equal(publicHTML, await readFile(new URL('../index.html', import.meta.url), 'utf8'), '운영 첫 화면과 현재 로컬 소개 소스가 다릅니다.');
+  const normalizeLF = text => text.replace(/\r\n/g, '\n');
+  assert.equal(normalizeLF(publicHTML), normalizeLF(await readFile(new URL('../index.html', import.meta.url), 'utf8')), '운영 첫 화면과 현재 로컬 소개 소스가 다릅니다.');
   assert.ok(!publicHTML.includes('의 합성 자료입니다.'));
   assert.equal(await a.page.locator('#private-content').isVisible(), false);
   assert.equal(await a.page.locator('input[type="password"]').count(), 0);

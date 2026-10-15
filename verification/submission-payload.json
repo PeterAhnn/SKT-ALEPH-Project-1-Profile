@@ -1,0 +1,28 @@
+{
+  "createdAt": "2026-10-15T05:33:58.157Z",
+  "file": "docs/T08-AUTH-EXPLANATION-FINAL.md",
+  "source": "docs/AUTH-EXPLANATION.md",
+  "bytes": 52543,
+  "sha256": "958349eb7843230c30ff71266c25abc968ad5ed5b4fba4364d51b91942fdeb8a",
+  "attachmentCount": 1,
+  "within8MiB": true,
+  "resultUrl": "https://skt-aleph-project-1.vercel.app/",
+  "sourceUrl": "https://github.com/PeterAhnn/SKT-ALEPH-Project-1-Profile/commit/653f9057cb63e5223b37b474f6f1fe1ceb61284c",
+  "browserDraft": {
+    "urlsFilled": true,
+    "checksFilled": true,
+    "judgmentsFilled": true,
+    "checksCharacters": 365,
+    "checkLines": 4,
+    "judgmentCharacters": 338,
+    "judgmentLines": 3,
+    "fileSelected": true,
+    "uploadConfirmed": false,
+    "submitPressed": false,
+    "selectedFileName": "T08-AUTH-EXPLANATION-FINAL.md",
+    "selectedFileBytes": 52543,
+    "observedWarning": "제출 전 확인 — 지금 상태로도 접수됩니다. 안내는 공개 결과물 URL 또는 PDF·DOCX·MD·TXT 보고서 한 파일 중 정확히 하나를 내도록 되어 있습니다. 이대로도 제출은 접수됩니다. 안내 준수 여부는 채점 때 확인됩니다.",
+    "warningInterpretation": "C01·C02의 결과물/소스 URL과 설명서 6항목을 함께 준비하기 위해 공개 URL과 MD 설명서를 함께 선택했습니다. 실제 제출 전 경고 확인이 필요합니다."
+  },
+  "browserDraftCheckedAt": "2026-10-15T05:34:51.712Z"
+}
