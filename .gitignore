@@ -5,7 +5,14 @@ node_modules/
 !.env.example
 .vercel/
 data/
+!career/apps/login-policy/data/
+!career/apps/login-policy/data/paper-data.json
 verification/private/
 playwright-report/
 test-results/
 public/
+bra-private/
+output/bra/
+verification/bra/
+output/brb/
+verification/brb/

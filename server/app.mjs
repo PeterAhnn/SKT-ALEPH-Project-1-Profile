@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { LocalStore, UnavailableStore } from './store.mjs';
+import { careerPublicFiles } from '../tools/bra/public-files.mjs';
 
 export const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 export const tokenHash = token => createHash('sha256').update(token).digest('hex');
@@ -42,6 +43,9 @@ export function createApp({ store, origin = process.env.T08_ORIGIN || 'http://lo
     ['/assets/private.css', ['assets/private.css', 'text/css; charset=utf-8']],
     ['/assets/private.mjs', ['assets/private.mjs', 'text/javascript; charset=utf-8']],
     ['/assets/webauthn.js', ['node_modules/@simplewebauthn/browser/dist/bundle/index.umd.min.js', 'text/javascript; charset=utf-8']],
+    ['/career/', ['career/index.html', 'text/html; charset=utf-8']],
+    ['/career/apps/login-policy/', ['career/apps/login-policy/index.html', 'text/html; charset=utf-8']],
+    ...careerPublicFiles.map(([file, type]) => [`/career/${file}`, [`career/${file}`, type]]),
   ]);
   return async function handler(req, res) {
     res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -70,6 +74,10 @@ export function createApp({ store, origin = process.env.T08_ORIGIN || 'http://lo
       }
       if (authRoutes && await authRoutes({ req, res, path, config, store })) return;
       if (path.startsWith('/api/')) throw httpError(404, '요청한 기능을 찾을 수 없습니다.');
+      if (path === '/career' && ['GET', 'HEAD'].includes(req.method)) {
+        res.writeHead(308, { Location: '/career/', 'Cache-Control': 'no-cache' });
+        return res.end();
+      }
       const file = publicFiles.get(path);
       if (!file || !['GET', 'HEAD'].includes(req.method)) throw httpError(404, '페이지를 찾을 수 없습니다.');
       const content = await readFile(resolve(projectRoot, file[0]));

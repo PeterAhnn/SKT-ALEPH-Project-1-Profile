@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="같은 합성 로그인 요청으로 IP·계정·복합 제한을 비교합니다. 과다 요청 허용과 정상 요청 거부를 함께 확인하세요.">
+  <meta name="color-scheme" content="light">
+  <title>로그인 요청 제한 정책 비교 | 안형섭</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">비교 도구로 바로 가기</a>
+  <header class="topbar wrap">
+    <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">≋</span> 안형섭 <span class="brand-sub">연구에서 도구로</span></a>
+    <a class="paper-link" href="../../paper.html">연구 논문 읽기 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="hero wrap" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">정보보안 · 논문을 반영한 애플리케이션</p>
+        <h1 id="page-title">로그인 요청 제한,<br>효과와 손실을 함께.</h1>
+        <p class="purpose">이 앱은 로그인 기능을 만드는 개발자와 보안 학습자가 요청 분포별 제한 효과와 정상 이용 손실을 함께 비교하도록 돕습니다.</p>
+        <p class="paper-title">바탕 논문 <span>합성 로그인 요청 재생에서 제한 기준이 과다 요청 허용과 정상 이용 손실에 미치는 영향</span></p>
+      </div>
+      <aside class="hero-note" aria-label="연구의 핵심">
+        <span class="note-kicker">논문에서 가져온 판단 기준</span>
+        <p>어디를 제한하느냐에 따라<br><strong>막히는 요청도 달라집니다.</strong></p>
+        <div class="signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="synthetic-label">합성 요청 · 외부 서버로 전송하지 않음</span>
+      </aside>
+    </section>
+
+    <nav class="steps wrap" aria-label="사용 순서">
+      <a href="#controls"><span>01</span> 조건을 고릅니다</a>
+      <a href="#run-compare"><span>02</span> 정책을 비교합니다</a>
+      <a href="#save-result"><span>03</span> 결과를 저장합니다</a>
+    </nav>
+
+    <div id="workspace" class="workspace wrap">
+      <section class="controls panel" id="controls" aria-labelledby="conditions-heading">
+        <div class="panel-heading"><span class="eyebrow">01 / 비교 조건</span><h2 id="conditions-heading">어떤 요청을 받을까요?</h2></div>
+        <form id="compare-form">
+          <fieldset id="scenario-fieldset"><legend>요청이 모이는 방식</legend>
+            <label class="scenario"><input type="radio" name="scenario" value="distributed_target" checked><span><strong>여러 IP → 한 계정</strong><small>여러 출발지에서 하나의 계정에 집중합니다.</small></span><span class="scenario-symbol" aria-hidden="true">↘</span></label>
+            <label class="scenario"><input type="radio" name="scenario" value="single_source_spray"><span><strong>한 IP → 여러 계정</strong><small>하나의 출발지에서 여러 계정에 요청합니다.</small></span><span class="scenario-symbol" aria-hidden="true">↗</span></label>
+            <label class="scenario"><input type="radio" name="scenario" value="shared_nat_benign"><span><strong>정상 이용자 · 공유 IP</strong><small>정상 이용자 50명이 같은 IP를 씁니다.</small></span><span class="scenario-symbol" aria-hidden="true">≋</span></label>
+            <label class="scenario"><input type="radio" name="scenario" value="targeted_mixed"><span><strong>한 계정 · 정상·과다 혼재</strong><small>정상 요청과 과다 요청이 같은 계정에 모입니다.</small></span><span class="scenario-symbol" aria-hidden="true">⇄</span></label>
+          </fieldset>
+          <div class="field-row">
+            <label class="field" for="threshold">60초당 허용 한도<select id="threshold"><option value="5">5회</option><option value="10">10회</option></select></label>
+            <label class="field" for="source-mode">사용할 자료<select id="source-mode"><option value="paper-all">논문 · 전체 30시드</option><option value="paper-seed">논문 · 한 시드</option><option value="custom">직접 입력 · 예시 JSON</option></select></label>
+          </div>
+          <label class="field seed-field" for="seed" hidden>재현 시드<select id="seed"></select><small>논문에서 사용한 같은 요청 200건을 재생합니다.</small></label>
+          <div id="custom-section" hidden>
+            <label class="field" for="custom-input">합성 요청 JSON <small>실제 IP·계정·연락처·비밀값은 입력하지 마세요. 브라우저 안에서만 계산합니다.</small></label>
+            <textarea id="custom-input" spellcheck="false" rows="9" aria-describedby="custom-help"></textarea>
+            <p class="help" id="custom-help">1~500건 · 시각은 0 이상의 정수 밀리초 · IP와 계정은 syn-으로 시작하는 예시 식별자를 사용하세요. 자세한 형식은 실행 안내에서 확인할 수 있습니다.</p>
+            <button id="reset-example" class="text-button" type="button">예시 입력으로 되돌리기</button>
+          </div>
+          <p class="fixed-rule">이동 시간창 60초 · 같은 요청을 네 정책에 적용합니다.<br>5·10회는 논문의 비교 설정이며 운영 권장값이 아닙니다.</p>
+          <button class="primary" id="run-compare" type="submit" disabled>자료를 불러오고 있습니다… <span aria-hidden="true">→</span></button>
+          <p id="form-error" class="error" role="alert" hidden></p>
+          <button id="retry-data" class="text-button" type="button" hidden>논문 자료 다시 불러오기</button>
+        </form>
+      </section>
+
+      <section class="results" id="results" aria-labelledby="results-heading">
+        <div class="result-heading"><div><p class="eyebrow">02 / 같은 요청, 다른 결과</p><h2 id="results-heading">효과와 손실을 나란히 봅니다.</h2></div><span class="scope-badge" id="scope-badge">계산 대기</span></div>
+        <p id="result-status" class="result-status" role="status" aria-live="polite" aria-atomic="true">논문 예시를 준비하고 있습니다. 준비가 끝나면 첫 비교 결과를 표시합니다.</p>
+        <div id="result-content" hidden>
+          <div class="legend"><span><i class="dot attack"></i> 과다 요청 허용률</span><span><i class="dot benign"></i> 정상 요청 거부율</span><small>두 지표 모두 낮을수록 해당 손실이 작습니다.</small></div>
+          <div id="policy-cards" class="policy-cards"></div>
+          <div class="finding" id="finding" aria-live="polite"></div>
+          <div class="save-row"><div><p class="eyebrow">03 / 판단을 남기기</p><p>조건·건수·계산식·한계를 함께 저장합니다.</p></div><button id="save-result" class="secondary" type="button">비교 결과 저장 <span aria-hidden="true">↓</span></button></div>
+          <p id="save-status" class="help" role="status" aria-live="polite"></p>
+        </div>
+        <noscript><p class="error">비교 계산에는 JavaScript가 필요합니다. 논문과 실행 안내는 링크에서 읽을 수 있습니다.</p></noscript>
+      </section>
+    </div>
+
+    <section class="request-section wrap" id="request-details" aria-labelledby="detail-heading" hidden>
+      <div class="detail-top"><div><p class="eyebrow">판정의 근거</p><h2 id="detail-heading">어떤 요청이 왜 거부됐을까요?</h2><p id="details-scope" class="help"></p></div><label class="field" for="detail-policy">살펴볼 정책<select id="detail-policy"><option value="ip">IP 제한</option><option value="account" selected>계정 제한</option><option value="dual">복합 제한</option><option value="none">제한 없음</option></select></label></div>
+      <div id="detail-list" class="detail-list"></div>
+      <div class="paging"><button id="previous-page" class="secondary" type="button">이전 요청</button><span id="page-status" role="status"></span><button id="next-page" class="secondary" type="button">다음 요청</button></div>
+    </section>
+
+    <section class="method-section wrap" aria-labelledby="method-heading">
+      <div><p class="eyebrow">계산과 해석</p><h2 id="method-heading">이 결과가 말해 주는 범위</h2><p>하나의 정책이 모든 상황에서 좋다고 결론 내리지 않습니다. 요청이 모이는 방식과 정상 이용 손실을 함께 살펴보세요.</p></div>
+      <div class="method-items">
+        <details><summary>어떤 규칙으로 계산하나요?</summary><p>현재 시각을 t라고 하면 (t−60,000ms, t]에 허용된 요청만 셉니다. 정확히 60초 전의 이력은 만료합니다. 복합 정책은 IP와 계정을 각각 검사하고, 하나라도 한도에 도달하면 거부합니다. 거부된 요청은 이력에 더하지 않습니다.</p><p>정상·과다 라벨과 합성 자격 유효 여부는 정책 판정에 쓰지 않습니다. 정상·과다 라벨은 결과를 집계할 때만 사용합니다.</p></details>
+        <details><summary>비율과 분모는 무엇인가요?</summary><p>과다 요청 허용률 = 허용된 과다 요청 ÷ 전체 과다 요청 × 100입니다. 정상 요청 거부율 = 거부된 정상 요청 ÷ 전체 정상 요청 × 100입니다. 분모가 0이면 ‘계산 불가’로 표시합니다.</p><p>전체 30시드는 각 시드의 이력을 독립적으로 초기화한 뒤 건수를 합칩니다. 한 시드 결과를 전체 논문 결과라고 표시하지 않습니다.</p></details>
+        <details><summary>실제 서비스에도 그대로 적용할 수 있나요?</summary><p>이 앱은 합성 입력을 로컬에서 재생한 연구를 반영했습니다. 허용은 제한기 통과이며 로그인 성공이나 계정 침해 성공이 아닙니다. 이 비율은 운영 서비스의 오탐률이나 실제 공격 성공률을 추정한 값이 아닙니다.</p><p>다중 서버 동기화, 프록시 신뢰, MFA·계정 복구는 다루지 않습니다. 5·10회와 60초는 비교 설정입니다. 실제 적용 전에는 해당 서비스의 요청 분포와 정상 이용 손실을 별도로 확인해야 합니다.</p></details>
+        <details><summary>자료와 실행 안내</summary><p id="data-provenance">T10 원본 합성 요청의 시각·순서를 보존한 자료를 사용합니다. 새 난수로 논문 결과를 대신하지 않습니다.</p><p><a href="../../downloads/T10-paper.md" download>논문 원문 내려받기</a> · <a href="./README.md">실행 안내와 입력 형식</a></p><p>외부 API·분석 도구·계정 생성이 필요하지 않습니다. 입력과 결과를 서버로 보내거나 브라우저에 자동 저장하지 않습니다. 결과 저장 버튼을 눌렀을 때만 파일을 만듭니다.</p></details>
+      </div>
+    </section>
+  </main>
+  <footer class="footer wrap"><span>안형섭 · BR-B</span><span>논문에서 확인한 결과를, 직접 써 보는 도구로.</span><a href="../../index.html#work">대표작으로 돌아가기 ↑</a></footer>
+</body>
+</html>
